@@ -301,9 +301,11 @@ export default function LandingPage() {
                <nav className="flex flex-col space-y-2 md:items-end">
                  <Link href="/terms" className="text-sm text-slate-500 hover:text-blue-600 transition-colors">Terms of Service</Link>
                  <Link href="/privacy" className="text-sm text-slate-500 hover:text-blue-600 transition-colors">Privacy Policy</Link>
-                 <a href="mailto:info@complavion.io" className="text-sm text-slate-500 hover:text-blue-600 transition-colors">Contact Administrator</a>
+                 <a href="mailto:info@complavi.com" className="text-sm text-slate-500 hover:text-blue-600 transition-colors">Contact Administrator</a>
                </nav>
              </div>
+           </div>
+
            <div className="border-t border-slate-100 pt-8 pb-4 space-y-4">
              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Required Disclosures</h4>
              <p className="text-[10px] text-slate-400 leading-relaxed max-w-5xl">
