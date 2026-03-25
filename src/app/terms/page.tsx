@@ -23,13 +23,13 @@ export default function TermsOfService() {
 
         <div className="prose prose-slate max-w-none space-y-8">
           <p className="lead text-lg text-slate-700 font-medium">
-            These terms govern your department's use of COMPLAVI's compliance management platform. By accessing the platform, your department agrees to the following.
+            These terms govern your department's use of COMPLAVION's compliance management platform. By accessing the platform, your department agrees to the following.
           </p>
 
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">1. Services provided.</h3>
             <p className="text-slate-600 leading-relaxed">
-              COMPLAVI provides cloud-based compliance management software designed to support county courts and probation departments in tracking participant supervision requirements.
+              COMPLAVION provides cloud-based compliance management software designed to support county courts and probation departments in tracking participant supervision requirements.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function TermsOfService() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">3. Data ownership.</h3>
             <p className="text-slate-600 leading-relaxed">
-              All data entered into the COMPLAVI platform remains the sole property of the county. COMPLAVI does not sell, transfer, or use county data for any purpose outside of service delivery.
+              All data entered into the COMPLAVION platform remains the sole property of the county. COMPLAVION does not sell, transfer, or use county data for any purpose outside of service delivery.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function TermsOfService() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">5. Limitation of liability.</h3>
             <p className="text-slate-600 leading-relaxed">
-              COMPLAVI provides supervision management tools to support county decision-making. All final supervision decisions remain the responsibility of authorized county officials. COMPLAVI is not liable for outcomes resulting from administrative decisions made using platform data.
+              COMPLAVION provides supervision management tools to support county decision-making. All final supervision decisions remain the responsibility of authorized county officials. COMPLAVION is not liable for outcomes resulting from administrative decisions made using platform data.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function TermsOfService() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">7. Governing law.</h3>
             <p className="text-slate-600 leading-relaxed">
-              These terms are governed by the laws of the state in which COMPLAVI LLC is incorporated.
+              These terms are governed by the laws of the state in which COMPLAVION LLC is incorporated.
             </p>
           </div>
         </div>

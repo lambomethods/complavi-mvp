@@ -291,7 +291,7 @@ export default function LandingPage() {
              <div>
                 <div className="flex items-center mb-4">
                   <Shield className="w-6 h-6 text-slate-800 mr-2" />
-                  <span className="font-extrabold tracking-widest text-slate-900">COMPLAVI LLC</span>
+                  <span className="font-extrabold tracking-widest text-slate-900">COMPLAVION LLC</span>
                 </div>
                 <p className="text-sm text-slate-500 font-medium">Compliance technology built for county government.</p>
                 <p className="text-xs text-slate-400 mt-2 max-w-sm">Court Optimized Monitoring Platform for Legal Accountability and Verified Intelligence.</p>
@@ -304,22 +304,19 @@ export default function LandingPage() {
                  <a href="mailto:info@complavion.io" className="text-sm text-slate-500 hover:text-blue-600 transition-colors">Contact Administrator</a>
                </nav>
              </div>
-           </div>
-
-           <div className="border-t border-slate-100 pt-8 pb-4 space-y-4">
+           </           <div className="border-t border-slate-100 pt-8 pb-4 space-y-4">
              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Required Disclosures</h4>
              <p className="text-[10px] text-slate-400 leading-relaxed max-w-5xl">
-               1. COMPLAVI LLC is an independent technology company. It is not affiliated with any law enforcement agency, federal government body, state department of corrections, or judicial authority.<br/>
-               2. COMPLAVI does not store, access, or transmit raw biometric data. All biometric verification is processed on the participant's personal device. COMPLAVI receives confirmation tokens only.<br/>
-               3. COMPLAVI is a supervision management tool. All case decisions, compliance determinations, and supervisory actions remain the sole responsibility of authorized county officials.<br/>
-               4. Participant use of the COMPLAVI mobile application is provided at no charge. COMPLAVI does not bill, charge, or collect fees from individuals under supervision.<br/>
+               1. COMPLAVION LLC is an independent technology company. It is not affiliated with any law enforcement agency, federal government body, state department of corrections, or judicial authority.<br/>
+               2. COMPLAVION does not store, access, or transmit raw biometric data. All biometric verification is processed on the participant's personal device. COMPLAVION receives confirmation tokens only.<br/>
+               3. COMPLAVION is a supervision management tool. All case decisions, compliance determinations, and supervisory actions remain the sole responsibility of authorized county officials.<br/>
+               4. Participant use of the COMPLAVI mobile application is provided at no charge. COMPLAVION does not bill, charge, or collect fees from individuals under supervision.<br/>
                5. County use of this platform may be subject to applicable state and local procurement requirements. Contact your county counsel or procurement office for guidance specific to your jurisdiction.
              </p>
            </div>
-
            <div className="mt-8 text-center text-xs text-slate-400 font-medium">
-             © {new Date().getFullYear()} COMPLAVI LLC. All rights reserved.
-           </div>
+             © {new Date().getFullYear()} COMPLAVION LLC. All rights reserved.
+           </div> </div>
         </div>
       </footer>
     </div>

@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
 
         <div className="prose prose-slate max-w-none space-y-8">
           <p className="lead text-lg text-slate-700 font-medium">
-            COMPLAVI is committed to responsible data stewardship. This policy explains what information we collect, how we use it, and how we protect it.
+            COMPLAVION is committed to responsible data stewardship. This policy explains what information we collect, how we use it, and how we protect it.
           </p>
 
           <div>
@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">What we do not collect</h3>
             <p className="text-slate-600 leading-relaxed">
-              <strong>Raw biometric data of any kind.</strong> Biometric verification is processed entirely on the participant's personal device using device-native technology. COMPLAVI receives only a cryptographic confirmation token indicating whether verification was successful. We never see, store, or transmit facial data.
+              <strong>Raw biometric data of any kind.</strong> Biometric verification is processed entirely on the participant's personal device using device-native technology. COMPLAVION receives only a cryptographic confirmation token indicating whether verification was successful. We never see, store, or transmit facial data.
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function PrivacyPolicy() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">Data security</h3>
             <p className="text-slate-600 leading-relaxed">
-              All platform data is stored on encrypted cloud infrastructure. Access is restricted to authorized county administrators only. COMPLAVI maintains industry-standard security protocols and conducts regular security reviews.
+              All platform data is stored on encrypted cloud infrastructure. Access is restricted to authorized county administrators only. COMPLAVION maintains industry-standard security protocols and conducts regular security reviews.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
           <div className="pt-8 border-t border-slate-200">
             <h3 className="text-xl font-bold text-slate-900 mb-3">Contact</h3>
             <p className="text-slate-600 leading-relaxed">
-              For privacy inquiries: <a href="mailto:privacy@complavion.io" className="text-blue-600 font-medium hover:underline">privacy@complavion.io</a>
+              For privacy inquiries: <a href="mailto:privacy@complavi.com" className="text-blue-600 font-medium hover:underline">privacy@complavi.com</a>
             </p>
           </div>
         </div>
