@@ -304,7 +304,7 @@ export default function LandingPage() {
                  <a href="mailto:info@complavion.io" className="text-sm text-slate-500 hover:text-blue-600 transition-colors">Contact Administrator</a>
                </nav>
              </div>
-           </           <div className="border-t border-slate-100 pt-8 pb-4 space-y-4">
+           <div className="border-t border-slate-100 pt-8 pb-4 space-y-4">
              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Required Disclosures</h4>
              <p className="text-[10px] text-slate-400 leading-relaxed max-w-5xl">
                1. COMPLAVION LLC is an independent technology company. It is not affiliated with any law enforcement agency, federal government body, state department of corrections, or judicial authority.<br/>
@@ -316,7 +316,7 @@ export default function LandingPage() {
            </div>
            <div className="mt-8 text-center text-xs text-slate-400 font-medium">
              © {new Date().getFullYear()} COMPLAVION LLC. All rights reserved.
-           </div> </div>
+           </div>
         </div>
       </footer>
     </div>
