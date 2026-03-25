@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  OFFICER
+  PROBATIONER
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum ComplianceStatus {
+  SUCCESS
+  MISSED
+  VIOLATION
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  role          Role      @default(PROBATIONER)
+  
+  // If this user is an OFFICER, these are their assigned probationers
+  assignedClients ProbationerProfile[] @relation("OfficerToProbationer")
+  
+  // If this user is a PROBATIONER, this is their specific profile
+  probationerProfile ProbationerProfile? @relation("UserToProbationer")
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model ProbationerProfile {
+  id              String    @id @default(cuid())
+  
+  userId          String    @unique
+  user            User      @relation("UserToProbationer", fields: [userId], references: [id], onDelete: Cascade)
+  
+  officerId       String?
+  officer         User?     @relation("OfficerToProbationer", fields: [officerId], references: [id], onDelete: SetNull)
+
+  caseNumber      String    @unique
+  probationEnd    DateTime
+  riskLevel       RiskLevel @default(LOW)
+
+  complianceLogs  ComplianceLog[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model ComplianceLog {
+  id                String             @id @default(cuid())
+  probationerId     String
+  probationer       ProbationerProfile @relation(fields: [probationerId], references: [id], onDelete: Cascade)
+  
+  status            ComplianceStatus
+  timestamp         DateTime           @default(now())
+  
+  // Geolocation snapshot at the moment of check-in
+  latitude          Float?
+  longitude         Float?
+  
+  // Biometric liveness check reference
+  livenessPhotoUrl  String?
+  
+  // Any automated flags or officer notes
+  notes             String?
+}
