@@ -41,17 +41,8 @@ export default function LandingPage() {
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
             COMPLAVI helps county courts and probation departments manage supervision more efficiently — replacing manual processes with verified digital check-ins, real-time compliance visibility, and automated reporting tools built specifically for departments your size.
           </p>
-          <div className="flex flex-col items-center justify-center">
-            <a href="#demo" className="text-lg font-bold bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1">
-              Apply For Pilot Program
-            </a>
-            <p className="mt-4 text-sm text-slate-500 font-medium flex items-center mb-16">
-              <CheckCircle2 className="w-4 h-4 mr-1.5 text-emerald-500" /> Complimentary 90-day pilot. Limited availability. No procurement commitment required.
-            </p>
-          </div>
-
           {/* VSL VIDEO EMBED */}
-          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative">
+          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-12">
             <video 
               controls 
               className="w-full h-auto aspect-video cursor-pointer"
@@ -60,6 +51,15 @@ export default function LandingPage() {
               <source src="/demo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+          </div>
+
+          <div className="flex flex-col items-center justify-center">
+            <a href="#demo" className="text-xl font-bold bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-xl transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1">
+              Apply For Pilot Program
+            </a>
+            <p className="mt-5 text-sm text-slate-400 font-medium flex items-center">
+              <CheckCircle2 className="w-4 h-4 mr-1.5 text-emerald-500" /> Complimentary 90-day pilot. Limited availability. No procurement commitment required.
+            </p>
           </div>
         </div>
       </section>
