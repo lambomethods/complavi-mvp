@@ -4,18 +4,51 @@ import React, { useState } from 'react'
 export default function CheckInFlow() {
   const [step, setStep] = useState(1);
   const [simulating, setSimulating] = useState(false);
+  const [gpsData, setGpsData] = useState<{lat: number, lng: number} | null>(null);
 
   const startCheckIn = () => {
     setSimulating(true);
-    // Simulate GPS ping
-    setTimeout(() => {
-      setStep(2);
-      // Simulate FaceID prompt processing
-      setTimeout(() => {
-        setStep(3);
-        setSimulating(false);
-      }, 2500);
-    }, 1500);
+    
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          setGpsData({ lat, lng });
+          setStep(2);
+          
+          try {
+            await fetch('/api/check-in', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                probationerId: "marcus-t-mock-id",
+                latitude: lat,
+                longitude: lng
+              })
+            });
+
+            // Maintain the 1s UI delay to simulate complex FaceID biometric acquisition
+            setTimeout(() => {
+              setStep(3);
+              setSimulating(false);
+            }, 1000);
+          } catch(e) {
+             console.error("Telemetry failed:", e);
+             alert("Transmission failed. Please find an area with stronger signal.");
+             setSimulating(false);
+          }
+        },
+        (error) => {
+          setSimulating(false);
+          alert("GPS Acquisition Failed: " + error.message + ". Please enable location services.");
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+      );
+    } else {
+      setSimulating(false);
+      alert("Geolocation is not supported by your browser.");
+    }
   }
 
   return (
@@ -64,7 +97,9 @@ export default function CheckInFlow() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">GPS Token</span>
-                <span className="text-xs font-mono text-emerald-600 font-bold">Zone Verified</span>
+                <span className="text-xs font-mono text-emerald-600 font-bold">
+                  {gpsData ? `${gpsData.lat.toFixed(4)}, ${gpsData.lng.toFixed(4)}` : 'Zone Verified'}
+                </span>
               </div>
             </div>
             
