@@ -4,11 +4,15 @@ import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, ShieldAlert
 
 import { PrismaClient } from '@prisma/client'
 
+export const dynamic = 'force-dynamic';
+
 const prisma = new PrismaClient()
 
-export default async function ProbationerProfile({ params }: { params: { id: string } }) {
+export default async function ProbationerProfile({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  
   const dbProfile = await prisma.probationerProfile.findUnique({
-    where: { id: params.id },
+    where: { id: resolvedParams.id },
     include: {
       user: true,
       officer: true,
@@ -29,7 +33,7 @@ export default async function ProbationerProfile({ params }: { params: { id: str
     caseNumber: dbProfile.caseNumber,
     officer: dbProfile.officer ? dbProfile.officer.name : 'Unassigned',
   } : {
-    id: params.id,
+    id: resolvedParams.id,
     name: 'Sarah L.',
     dob: '04/22/1988',
     status: 'COMPLIANT',
