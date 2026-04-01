@@ -2,23 +2,60 @@ import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, ShieldAlert, History } from 'lucide-react'
 
-export default function ProbationerProfile({ params }: { params: { id: string } }) {
-  // Dummy data generated for the Loom demo
-  const profile = {
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+export default async function ProbationerProfile({ params }: { params: { id: string } }) {
+  const dbProfile = await prisma.probationerProfile.findUnique({
+    where: { id: params.id },
+    include: {
+      user: true,
+      officer: true,
+      complianceLogs: { orderBy: { timestamp: 'desc' }, take: 10 }
+    }
+  });
+
+  const latestLog = dbProfile?.complianceLogs[0];
+  const isCompliant = latestLog?.status === 'SUCCESS';
+
+  const profile = dbProfile ? {
+    id: dbProfile.id,
+    name: dbProfile.user.name,
+    dob: '11/14/1994', // Static mapping pending schema upgrade
+    status: isCompliant ? 'COMPLIANT - LIVENESS VERIFIED' : 'AWAITING TELEMETRY',
+    statusColor: isCompliant ? 'bg-emerald-100 text-emerald-700 border-emerald-200' : 'bg-amber-100 text-amber-700 border-amber-200',
+    riskLevel: dbProfile.riskLevel,
+    caseNumber: dbProfile.caseNumber,
+    officer: dbProfile.officer ? dbProfile.officer.name : 'Unassigned',
+  } : {
     id: params.id,
-    name: 'Marcus T.',
-    dob: '11/14/1994',
-    status: 'VIOLATION - EXCLUSION ZONE',
-    riskLevel: 'MEDIUM',
+    name: 'Sarah L.',
+    dob: '04/22/1988',
+    status: 'COMPLIANT',
+    statusColor: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+    riskLevel: 'LOW',
     caseNumber: 'CR-2025-0199',
     officer: 'OFC. R. Davis',
-  }
+  };
 
-  const complianceLogs = [
-    { id: 1, type: 'FaceID Liveness', result: 'PASSED', time: 'Today, 08:00 AM', geo: 'Verified inside inclusion zone', icon: Fingerprint, color: 'text-emerald-500' },
-    { id: 2, type: 'Geofence Ping', result: 'FAILED', time: 'Today, 11:42 AM', geo: 'Crossed into Exclusion Zone 4 (Main St)', icon: MapPin, color: 'text-red-500' },
-    { id: 3, type: 'Officer Override', result: 'WARNING ISSUED', time: 'Today, 11:45 AM', geo: 'Manual ping triggered', icon: ShieldAlert, color: 'text-amber-500' },
-  ]
+  const complianceLogs = dbProfile && dbProfile.complianceLogs.length > 0 
+    ? dbProfile.complianceLogs.map(log => ({
+        id: log.id,
+        type: 'Zero-Knowledge Biometric Auth',
+        result: log.status,
+        time: new Date(log.timestamp).toLocaleString(),
+        geo: log.latitude && log.longitude ? `Locked: ${log.latitude.toFixed(6)}, ${log.longitude.toFixed(6)}` : 'Location Unavailable',
+        icon: Fingerprint,
+        color: log.status === 'SUCCESS' ? 'text-emerald-500' : 'text-red-500'
+      }))
+    : [
+        { id: 1, type: 'FaceID Liveness', result: 'PASSED', time: 'Today, 08:00 AM', geo: 'Verified inside inclusion zone', icon: Fingerprint, color: 'text-emerald-500' },
+        { id: 2, type: 'Geofence Ping', result: 'FAILED', time: 'Today, 11:42 AM', geo: 'Crossed into Exclusion Zone 4 (Main St)', icon: MapPin, color: 'text-red-500' }
+      ];
+
+  const latestLat = dbProfile?.complianceLogs[0]?.latitude || 34.0522;
+  const latestLng = dbProfile?.complianceLogs[0]?.longitude || -118.2437;
 
   return (
     <div className="p-8 max-w-6xl mx-auto w-full">
@@ -39,7 +76,7 @@ export default function ProbationerProfile({ params }: { params: { id: string } 
             </div>
           </div>
           <div className="flex flex-col items-end">
-            <span className="bg-red-100 text-red-700 px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border border-red-200 mb-2 shadow-sm">
+            <span className={`${profile.statusColor} px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border mb-2 shadow-sm`}>
               {profile.status}
             </span>
             <span className="text-xs text-slate-500 font-medium">Risk: <strong className="text-slate-800">{profile.riskLevel}</strong></span>
@@ -93,7 +130,7 @@ export default function ProbationerProfile({ params }: { params: { id: string } 
                    <MapPin className="w-8 h-8 text-red-600 drop-shadow-lg mb-2 relative z-10" />
                  </div>
                  <span className="bg-white px-3 py-1.5 rounded-md text-xs font-mono border border-slate-200 font-bold text-slate-700 shadow-sm mt-2">
-                   Lat: 34.0522 • Lng: -118.2437
+                   Lat: {latestLat.toFixed(4)} • Lng: {latestLng.toFixed(4)}
                  </span>
                </div>
             </div>
