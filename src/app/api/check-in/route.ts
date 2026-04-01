@@ -13,23 +13,17 @@ export async function POST(req: Request) {
     const targetId = probationerId || "marcus-t-mock-id";
 
     // Write real immutable log to the PostgreSQL database
-    try {
-      const log = await prisma.complianceLog.create({
-        data: {
-          probationerId: targetId,
-          status: "SUCCESS",
-          latitude: latitude ? parseFloat(latitude) : null,
-          longitude: longitude ? parseFloat(longitude) : null,
-          notes: "Automated Liveness Check via Hardware Enclave"
-        }
-      });
-      return NextResponse.json({ success: true, logId: log.id });
-    } catch (dbError) {
-      // Fallback: If Vercel has not been configured with a Cloud Database URL yet,
-      // Ensure the frontend mobile app still functions structurally for sales demos
-      console.warn("Cloud DB not provisioned. Passing simulated success block for GPS:", dbError);
-      return NextResponse.json({ success: true, logId: "cloud-lock-simulated-success" });
-    }
+    const log = await prisma.complianceLog.create({
+      data: {
+        probationerId: targetId,
+        status: "SUCCESS",
+        latitude: latitude ? parseFloat(latitude) : null,
+        longitude: longitude ? parseFloat(longitude) : null,
+        notes: "Automated Liveness Check via Hardware Enclave"
+      }
+    });
+    
+    return NextResponse.json({ success: true, logId: log.id });
   } catch (error: any) {
     console.error("Check-in Mutation Error:", error);
     return NextResponse.json({ error: "Server encountered an error writing compliance lock to database." }, { status: 500 });
