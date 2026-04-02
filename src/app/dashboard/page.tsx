@@ -1,5 +1,11 @@
 import React from 'react'
 import { Activity, CheckCircle, AlertOctagon, TrendingDown, MapPin, Map } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+const LiveMap = dynamic(
+  () => import('@/components/MapUI'),
+  { ssr: false, loading: () => <div className="w-full h-80 bg-slate-100 animate-pulse rounded-lg flex items-center justify-center text-slate-400 font-medium">Booting Geospatial Engine...</div> }
+)
 
 export default function DashboardOverview() {
   return (
@@ -46,13 +52,9 @@ export default function DashboardOverview() {
         <div className="col-span-2 bg-white rounded-xl shadow-sm border border-slate-200 p-6">
           <h2 className="text-lg font-bold text-slate-800 mb-4 flex items-center">
             <Map className="w-5 h-5 mr-2 text-slate-400" />
-            Geospatial Compliance Heatmap
+            Live Geospatial Matrix
           </h2>
-          <div className="w-full h-80 bg-slate-100 rounded-lg flex flex-col justify-center items-center border border-slate-200 border-dashed">
-            <MapPin className="w-10 h-10 text-slate-300 mb-3" />
-            <p className="text-slate-500 font-medium">MapBox / Google Maps Integration Pending</p>
-            <p className="text-xs text-slate-400">Secure GovCloud API Keys required</p>
-          </div>
+          <LiveMap />
         </div>
 
         <div className="col-span-1 bg-white rounded-xl shadow-sm border border-slate-200 p-6">
