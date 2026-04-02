@@ -107,17 +107,6 @@ export default async function DashboardOverview() {
                  </div>
                ))
              )}
-               <div key={i} className="p-3 bg-slate-50 rounded-lg border border-slate-100 flex justify-between items-start">
-                 <div>
-                   <p className="text-sm font-bold text-slate-800">{alert.name}</p>
-                   <p className="text-xs text-slate-500 mt-0.5">{alert.reason}</p>
-                   <span className="text-[10px] text-slate-400 mt-1 block">{alert.time}</span>
-                 </div>
-                 <span className={`text-[10px] font-bold px-2 py-1 rounded bg-red-100 text-red-600`}>
-                   {alert.severity}
-                 </span>
-               </div>
-             ))}
           </div>
           <button className="w-full mt-4 py-2 border border-slate-200 rounded text-sm text-slate-600 font-medium hover:bg-slate-50 transition-colors">
             View All Triggers
