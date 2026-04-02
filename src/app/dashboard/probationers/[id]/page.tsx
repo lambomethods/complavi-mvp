@@ -1,12 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, ShieldAlert, History } from 'lucide-react'
-
-import { PrismaClient } from '@prisma/client'
+import prisma from '@/lib/prisma'
 
 export const dynamic = 'force-dynamic';
-
-const prisma = new PrismaClient()
 
 export default async function ProbationerProfile({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;

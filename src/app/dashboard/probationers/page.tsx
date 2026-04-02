@@ -1,11 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { Search, Filter, ShieldAlert, CheckCircle, Clock } from 'lucide-react'
-import { PrismaClient } from '@prisma/client'
+import prisma from '@/lib/prisma'
 
 export const dynamic = 'force-dynamic';
-
-const prisma = new PrismaClient()
 
 export default async function CaseloadMatrix() {
   const dbProfiles = await prisma.probationerProfile.findMany({

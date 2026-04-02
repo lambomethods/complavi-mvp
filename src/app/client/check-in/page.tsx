@@ -18,7 +18,7 @@ export default function CheckInFlow() {
           setStep(2);
           
           try {
-            await fetch('/api/check-in', {
+            const res = await fetch('/api/check-in', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -27,6 +27,8 @@ export default function CheckInFlow() {
                 longitude: lng
               })
             });
+            
+            if (!res.ok) throw new Error("API Server Connection Failed");
 
             // Maintain the 1s UI delay to simulate complex FaceID biometric acquisition
             setTimeout(() => {
