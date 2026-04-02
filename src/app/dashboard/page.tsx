@@ -1,14 +1,14 @@
 import React from 'react'
 import { Activity, CheckCircle, AlertOctagon, TrendingDown, MapPin, Map } from 'lucide-react'
-import dynamic from 'next/dynamic'
+import NextDynamic from 'next/dynamic'
 import prisma from '@/lib/prisma'
 
-const LiveMap = dynamic(
+const LiveMap = NextDynamic(
   () => import('@/components/MapUI'),
   { ssr: false, loading: () => <div className="w-full h-80 bg-slate-100 animate-pulse rounded-lg flex items-center justify-center text-slate-400 font-medium">Booting Geospatial Engine...</div> }
 )
 
-export const dynamicConfig = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 
 export default async function DashboardOverview() {
   const activeMonitored = await prisma.probationerProfile.count();
