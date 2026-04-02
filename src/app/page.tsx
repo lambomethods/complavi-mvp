@@ -9,10 +9,10 @@ export default function LandingPage() {
       <nav className="bg-slate-950 border-b border-slate-800 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Shield className="w-8 h-8 text-blue-500 mr-2" />
-              <span className="font-extrabold text-xl tracking-widest text-white">COMPLAVI</span>
-            </div>
+              <span className="font-extrabold text-xl tracking-widest text-white hover:text-blue-400 transition-colors">COMPLAVI</span>
+            </Link>
             <div className="hidden md:flex space-x-8">
                <a href="#problem" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">The Problem</a>
                <a href="#platform" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">Platform</a>
@@ -21,7 +21,7 @@ export default function LandingPage() {
             </div>
             <div className="flex items-center space-x-4">
               <Link href="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:block">Court / Officer Login</Link>
-              <a href="#demo" className="text-sm font-bold bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-md transition-colors shadow-lg shadow-blue-900/20">Apply For Pilot</a>
+              <a href="mailto:admin@complavi.com?subject=Pilot Application" className="text-sm font-bold bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-md transition-colors shadow-lg shadow-blue-900/20">Apply For Pilot</a>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function LandingPage() {
           </div>
 
           <div className="flex flex-col items-center justify-center">
-            <a href="#demo" className="text-xl font-bold bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-xl transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1">
+            <a href="mailto:admin@complavi.com?subject=Complimentary Pilot Request" className="text-xl font-bold bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-xl transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1">
               Apply For Pilot Program
             </a>
             <p className="mt-5 text-sm text-slate-400 font-medium flex items-center">
@@ -246,7 +246,7 @@ export default function LandingPage() {
                 <li className="flex items-center"><Check className="w-4 h-4 text-emerald-500 mr-2 shrink-0" /> Dedicated onboarding support</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-emerald-500 mr-2 shrink-0" /> No procurement commitment</li>
               </ul>
-              <a href="#demo" className="block w-full py-3 rounded-lg font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">Apply For Pilot</a>
+              <a href="mailto:admin@complavi.com?subject=Pilot Request" className="block w-full py-3 rounded-lg font-bold text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors">Apply For Pilot</a>
             </div>
 
             {/* Tier 2 */}
@@ -261,7 +261,7 @@ export default function LandingPage() {
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Automated audit log</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Email support included</li>
               </ul>
-              <a href="#sales" className="block w-full py-3 rounded-lg font-bold text-slate-900 bg-white hover:bg-slate-100 transition-colors shadow-md">Contact Sales</a>
+              <a href="mailto:admin@complavi.com?subject=Standard Licensing Inquiry" className="block w-full py-3 rounded-lg font-bold text-slate-900 bg-white hover:bg-slate-100 transition-colors shadow-md">Contact Sales</a>
             </div>
 
             {/* Tier 3 */}
@@ -275,7 +275,7 @@ export default function LandingPage() {
                 <li className="flex items-center"><Check className="w-4 h-4 text-emerald-500 mr-2 shrink-0" /> API access for integration</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-emerald-500 mr-2 shrink-0" /> Priority response</li>
               </ul>
-              <a href="#sales" className="block w-full py-3 rounded-lg font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-200">Contact Enterprise</a>
+              <a href="mailto:admin@complavi.com?subject=Enterprise Custom Solution" className="block w-full py-3 rounded-lg font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-200">Contact Enterprise</a>
             </div>
           </div>
         </div>

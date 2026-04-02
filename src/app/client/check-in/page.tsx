@@ -1,21 +1,47 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 export default function CheckInFlow() {
   const [step, setStep] = useState(1);
   const [simulating, setSimulating] = useState(false);
   const [gpsData, setGpsData] = useState<{lat: number, lng: number} | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
 
-  const startCheckIn = () => {
+  useEffect(() => {
+    if (step === 2 && stream && videoRef.current) {
+      videoRef.current.srcObject = stream;
+    }
+  }, [step, stream]);
+
+  const startCheckIn = async () => {
     setSimulating(true);
-    
+    try {
+      const mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false });
+      setStream(mediaStream);
+      setStep(2); // Step 2: Camera Feed UI
+      
+      // Hold FaceID scan for 3 seconds
+      setTimeout(() => {
+        proceedToGPS(mediaStream);
+      }, 3000);
+    } catch (err) {
+      alert("Hardware Camera Access is legally required for Liveness Verification.");
+      setSimulating(false);
+    }
+  }
+
+  const proceedToGPS = (activeStream: MediaStream) => {
+    setStep(3); // Step 3: Acquiring GPS String
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
+          activeStream.getTracks().forEach(track => track.stop()); // Turn off camera
+
           const lat = position.coords.latitude;
           const lng = position.coords.longitude;
           setGpsData({ lat, lng });
-          setStep(2);
+          setStep(4); // Step 4: Transmitting
           
           try {
             const res = await fetch('/api/check-in', {
@@ -30,9 +56,8 @@ export default function CheckInFlow() {
             
             if (!res.ok) throw new Error("API Server Connection Failed");
 
-            // Maintain the 1s UI delay to simulate complex FaceID biometric acquisition
             setTimeout(() => {
-              setStep(3);
+              setStep(5); // Step 5: Success
               setSimulating(false);
             }, 1000);
           } catch(e) {
@@ -42,14 +67,18 @@ export default function CheckInFlow() {
           }
         },
         (error) => {
+          activeStream.getTracks().forEach(track => track.stop());
           setSimulating(false);
           alert("GPS Acquisition Failed: " + error.message + ". Please enable location services.");
+          setStep(1);
         },
         { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
       );
     } else {
+      activeStream.getTracks().forEach(track => track.stop());
       setSimulating(false);
       alert("Geolocation is not supported by your browser.");
+      setStep(1);
     }
   }
 
@@ -73,14 +102,26 @@ export default function CheckInFlow() {
         )}
 
         {step === 2 && (
-          <div className="flex flex-col items-center animate-pulse slide-up-anim">
-            <svg className="w-16 h-16 text-blue-500 mb-4 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <p className="font-bold text-slate-700">Acquiring GPS Telemetry...</p>
-            <p className="text-xs text-slate-400 mt-2 font-mono">Ensuring inclusion zone compliance.</p>
+          <div className="flex flex-col items-center slide-up-anim w-full overflow-visible relative pb-6">
+            <h2 className="text-lg font-bold text-slate-800 mb-6 animate-pulse">Acquiring Biometric Scan...</h2>
+            <div className="relative w-64 h-64 rounded-full overflow-hidden border-8 border-blue-500 shadow-[0_0_50px_rgba(37,99,235,0.4)]">
+              <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover transform scale-x-[-1]"></video>
+              <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay animate-pulse"></div>
+              <div className="absolute top-0 left-0 w-full h-2 bg-white/80 shadow-[0_0_20px_rgba(255,255,255,1)] animate-scan"></div>
+            </div>
+            <p className="text-[10px] text-slate-400 mt-6 font-mono bg-slate-100 px-3 py-1.5 rounded uppercase tracking-widest border border-slate-200">Computing SHA-256 Facial Hash...</p>
           </div>
         )}
 
-        {step === 3 && (
+        {(step === 3 || step === 4) && (
+          <div className="flex flex-col items-center animate-pulse slide-up-anim">
+            <svg className="w-16 h-16 text-blue-500 mb-4 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <p className="font-bold text-slate-700">Acquiring GPS Telemetry...</p>
+            <p className="text-xs text-slate-400 mt-2 font-mono">{step === 4 ? "Transmitting payload..." : "Verifying inclusion zone..."}</p>
+          </div>
+        )}
+
+        {step === 5 && (
           <div className="flex flex-col items-center bg-white p-7 rounded-2xl border border-emerald-100 shadow-xl w-full text-center slide-up-anim">
             <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-4 mx-auto border-4 border-white shadow-sm">
                <svg className="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
@@ -90,8 +131,8 @@ export default function CheckInFlow() {
             
             <div className="mt-8 bg-slate-50 p-4 rounded-xl border border-slate-100 w-full text-left space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Timestamp</span>
-                <span className="text-xs font-mono text-slate-700 font-bold">{new Date().toLocaleTimeString()}</span>
+                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Server Time</span>
+                <span className="text-xs font-mono text-slate-700 font-bold">{new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York' })} EDT</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Liveness</span>
@@ -100,7 +141,7 @@ export default function CheckInFlow() {
               <div className="flex justify-between items-center">
                 <span className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">GPS Token</span>
                 <span className="text-xs font-mono text-emerald-600 font-bold">
-                  {gpsData ? `${gpsData.lat.toFixed(4)}, ${gpsData.lng.toFixed(4)}` : 'Zone Verified'}
+                  {gpsData ? `${gpsData.lat.toFixed(6)}, ${gpsData.lng.toFixed(6)}` : 'Zone Verified'}
                 </span>
               </div>
             </div>
@@ -119,6 +160,8 @@ export default function CheckInFlow() {
         .animate-spin-slow { animation: spin-slow 3s linear infinite; }
         .slide-up-anim { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes slideUp { 0% { transform: translateY(20px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+        @keyframes scanLine { 0% { top: 0%; opacity: 0.8; } 50% { top: 100%; opacity: 0.2; } 100% { top: 0%; opacity: 0.8; } }
+        .animate-scan { animation: scanLine 2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
       `}} />
     </div>
   )

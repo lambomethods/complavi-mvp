@@ -29,34 +29,26 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
     riskLevel: dbProfile.riskLevel,
     caseNumber: dbProfile.caseNumber,
     officer: dbProfile.officer ? dbProfile.officer.name : 'Unassigned',
-  } : {
-    id: resolvedParams.id,
-    name: 'Sarah L.',
-    dob: '04/22/1988',
-    status: 'COMPLIANT',
-    statusColor: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-    riskLevel: 'LOW',
-    caseNumber: 'CR-2025-0199',
-    officer: 'OFC. R. Davis',
-  };
+  } : null;
+
+  if (!profile) {
+    return <div className="p-8 text-center text-slate-500 font-bold">Profile Database Record Not Found.</div>
+  }
 
   const complianceLogs = dbProfile && dbProfile.complianceLogs.length > 0 
     ? dbProfile.complianceLogs.map(log => ({
         id: log.id,
         type: 'Zero-Knowledge Biometric Auth',
         result: log.status,
-        time: new Date(log.timestamp).toLocaleString(),
-        geo: log.latitude && log.longitude ? `Locked: ${log.latitude.toFixed(6)}, ${log.longitude.toFixed(6)}` : 'Location Unavailable',
+        time: new Date(log.timestamp).toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'short', timeStyle: 'medium' }),
+        geo: log.latitude && log.longitude ? `Vector Locked Natively` : 'Location Unavailable',
         icon: Fingerprint,
         color: log.status === 'SUCCESS' ? 'text-emerald-500' : 'text-red-500'
       }))
-    : [
-        { id: 1, type: 'FaceID Liveness', result: 'PASSED', time: 'Today, 08:00 AM', geo: 'Verified inside inclusion zone', icon: Fingerprint, color: 'text-emerald-500' },
-        { id: 2, type: 'Geofence Ping', result: 'FAILED', time: 'Today, 11:42 AM', geo: 'Crossed into Exclusion Zone 4 (Main St)', icon: MapPin, color: 'text-red-500' }
-      ];
+    : [];
 
-  const latestLat = dbProfile?.complianceLogs[0]?.latitude || 34.0522;
-  const latestLng = dbProfile?.complianceLogs[0]?.longitude || -118.2437;
+  const latestLat = dbProfile?.complianceLogs[0]?.latitude || null;
+  const latestLng = dbProfile?.complianceLogs[0]?.longitude || null;
 
   return (
     <div className="p-8 max-w-6xl mx-auto w-full">
@@ -130,9 +122,15 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
                    <div className="absolute -inset-2 bg-red-500 rounded-full animate-ping opacity-20"></div>
                    <MapPin className="w-8 h-8 text-red-600 drop-shadow-lg mb-2 relative z-10" />
                  </div>
-                 <span className="bg-white px-3 py-1.5 rounded-md text-xs font-mono border border-slate-200 font-bold text-slate-700 shadow-sm mt-2">
-                   Lat: {latestLat.toFixed(4)} • Lng: {latestLng.toFixed(4)}
-                 </span>
+                 {latestLat && latestLng ? (
+                   <span className="bg-white px-3 py-1.5 rounded-md text-xs font-mono border border-slate-200 font-bold text-slate-700 shadow-sm mt-2">
+                     Geospatial Vector Locked
+                   </span>
+                 ) : (
+                   <span className="bg-white px-3 py-1.5 rounded-md text-xs font-mono border border-slate-200 font-bold text-slate-500 shadow-sm mt-2">
+                     Awaiting Telemetry
+                   </span>
+                 )}
                </div>
             </div>
           </div>

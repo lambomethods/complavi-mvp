@@ -24,7 +24,7 @@ export default async function CaseloadMatrix() {
     if (lastLog) {
       if (lastLog.status === 'SUCCESS') {
         status = 'COMPLIANT';
-        lastCheckInText = new Date(lastLog.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ' (Live Coord Lock)';
+        lastCheckInText = new Date(lastLog.timestamp).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: 'America/New_York' }) + ' (Live Coord Lock)';
       } else {
         status = 'VIOLATION';
         lastCheckInText = 'Missed / Failed';
@@ -40,13 +40,6 @@ export default async function CaseloadMatrix() {
       lastCheckIn: lastCheckInText
     }
   });
-
-  // Presentation padding: Keep the matrix looking massive for sales demos
-  probationers.push(
-    { id: 'PRB-8922', name: 'Sarah L.', offense: 'White Collar', risk: 'LOW', status: 'COMPLIANT', lastCheckIn: 'Today, 08:00 AM' },
-    { id: 'PRB-8923', name: 'David R.', offense: 'DUI', risk: 'HIGH', status: 'WARNING', lastCheckIn: 'Pending (Due in 1h)' },
-    { id: 'PRB-8924', name: 'James W.', offense: 'Non-Violent/Property', risk: 'LOW', status: 'COMPLIANT', lastCheckIn: 'Yesterday, 09:15 AM' }
-  );
 
   return (
     <div className="p-8 max-w-7xl mx-auto w-full">
