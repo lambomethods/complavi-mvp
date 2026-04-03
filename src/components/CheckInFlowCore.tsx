@@ -6,9 +6,18 @@ export default function CheckInFlow() {
   const [step, setStep] = useState(1);
   const [simulating, setSimulating] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [gpsData, setGpsData] = useState<{lat: number, lng: number} | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
+
+  useEffect(() => {
+    const today = new Date().toDateString();
+    if (localStorage.getItem('complavi_verified_date') === today) {
+      setIsComplete(true);
+    }
+    setIsHydrated(true);
+  }, []);
 
   useEffect(() => {
     let detectInterval: NodeJS.Timeout;
@@ -101,11 +110,13 @@ export default function CheckInFlow() {
     }
   }
 
+  if (!isHydrated) return null;
+
   return (
     <div className="p-6 h-full flex flex-col pt-12 relative z-10 pb-32">
       <div className="mb-10 text-center">
          <h1 className="text-2xl font-extrabold text-slate-800">Good Morning, Marcus.</h1>
-         {isComplete ? (
+         {isComplete || step === 5 ? (
            <p className="text-emerald-600 mt-2 text-sm font-bold flex items-center justify-center">
              <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
              Your daily check-in is complete.
@@ -180,7 +191,11 @@ export default function CheckInFlow() {
             </div>
             
             <button 
-              onClick={() => { setIsComplete(true); setStep(1); }}
+              onClick={() => { 
+                setIsComplete(true); 
+                localStorage.setItem('complavi_verified_date', new Date().toDateString());
+                setStep(1); 
+              }}
               className="w-full mt-6 py-3.5 bg-slate-900 text-white font-extrabold text-sm rounded-xl hover:bg-slate-800 transition-colors shadow-md"
             >
                Return to Dashboard

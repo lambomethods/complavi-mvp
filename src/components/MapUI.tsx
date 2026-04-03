@@ -1,6 +1,38 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+import { APIProvider, Map, Marker, useMap } from '@vis.gl/react-google-maps';
+
+function MapZones({ centerLat, centerLng }: { centerLat: number, centerLng: number }) {
+  const map = useMap();
+  useEffect(() => {
+    if (!map || !window.google) return;
+
+    // Inclusion Zone (Green) - County Boundaries / Geofence
+    new window.google.maps.Circle({
+      strokeColor: '#10B981',
+      strokeOpacity: 0.7,
+      strokeWeight: 2,
+      fillColor: '#10B981',
+      fillOpacity: 0.08,
+      map,
+      center: { lat: centerLat, lng: centerLng },
+      radius: 3500, // 3.5 km approved boundary
+    });
+
+    // Exclusion Zone (Red) - Protective Stay Away Order
+    new window.google.maps.Circle({
+      strokeColor: '#EF4444',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#EF4444',
+      fillOpacity: 0.15,
+      map,
+      center: { lat: centerLat + 0.015, lng: centerLng - 0.01 }, // Offset victim residence
+      radius: 600, // 600 meter blackout zone
+    });
+  }, [map, centerLat, centerLng]);
+  return null;
+}
 
 interface Location {
   id: string;
@@ -37,6 +69,7 @@ export default function MapUI() {
     <div className="w-full h-80 rounded-lg overflow-hidden border border-slate-200 shadow-inner z-0">
       <APIProvider apiKey={apiKey}>
         <Map
+          mapId="DEMO_MAP_ID"
           defaultZoom={zoomLevel}
           defaultCenter={{ lat: centerLat, lng: centerLng }}
           gestureHandling={'greedy'}
@@ -45,6 +78,7 @@ export default function MapUI() {
           {locations.map((loc) => (
             <Marker key={loc.id} position={{ lat: loc.lat, lng: loc.lng }} />
           ))}
+          <MapZones centerLat={centerLat} centerLng={centerLng} />
         </Map>
       </APIProvider>
     </div>
