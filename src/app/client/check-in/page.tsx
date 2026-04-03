@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react'
 export default function CheckInFlow() {
   const [step, setStep] = useState(1);
   const [simulating, setSimulating] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
   const [gpsData, setGpsData] = useState<{lat: number, lng: number} | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -86,11 +87,18 @@ export default function CheckInFlow() {
     <div className="p-6 h-full flex flex-col pt-12 relative z-10 pb-32">
       <div className="mb-10 text-center">
          <h1 className="text-2xl font-extrabold text-slate-800">Good Morning, Marcus.</h1>
-         <p className="text-slate-500 mt-2 text-sm font-medium">You have an active liveness check required before 10:00 AM.</p>
+         {isComplete ? (
+           <p className="text-emerald-600 mt-2 text-sm font-bold flex items-center justify-center">
+             <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
+             Your daily check-in is complete.
+           </p>
+         ) : (
+           <p className="text-slate-500 mt-2 text-sm font-medium">You have an active liveness check required before 10:00 AM.</p>
+         )}
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center -mt-10">
-        {step === 1 && (
+        {step === 1 && !isComplete && (
            <button 
              onClick={startCheckIn}
              disabled={simulating}
@@ -99,6 +107,13 @@ export default function CheckInFlow() {
              <svg className="w-12 h-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" /></svg>
              {simulating ? '...' : 'VERIFY NOW'}
            </button>
+        )}
+
+        {step === 1 && isComplete && (
+            <div className="w-48 h-48 rounded-full bg-emerald-50 text-emerald-500 font-extrabold text-xl flex flex-col items-center justify-center border-8 border-white shadow-lg">
+              <svg className="w-16 h-16 text-emerald-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
+              VERIFIED
+            </div>
         )}
 
         {step === 2 && (
@@ -147,7 +162,7 @@ export default function CheckInFlow() {
             </div>
             
             <button 
-              onClick={() => setStep(1)}
+              onClick={() => { setIsComplete(true); setStep(1); }}
               className="w-full mt-6 py-3.5 bg-slate-900 text-white font-extrabold text-sm rounded-xl hover:bg-slate-800 transition-colors shadow-md"
             >
                Return to Dashboard
