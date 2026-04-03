@@ -1,5 +1,5 @@
 import React from 'react'
-import { Activity, CheckCircle, AlertOctagon, TrendingDown, MapPin, Map } from 'lucide-react'
+import { Activity, CheckCircle, AlertOctagon, TrendingDown, Map } from 'lucide-react'
 import NextDynamic from 'next/dynamic'
 import prisma from '@/lib/prisma'
 
