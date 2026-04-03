@@ -20,14 +20,18 @@ export default function CheckInFlow() {
            setIsComplete(true);
            localStorage.setItem('complavi_verified_date', new Date().toDateString());
         } else {
-           // Fallback to localStorage just in case of network throttle
-           const today = new Date().toDateString();
-           if (localStorage.getItem('complavi_verified_date') === today) {
-             setIsComplete(true);
-           }
+           // If the server explicitly says FALSE, we should wipe the cache to stay in sync!
+           // This enables the "Reset Pitch" button on the dashboard to work globally.
+           localStorage.removeItem('complavi_verified_date');
+           setIsComplete(false);
+           setStep(1);
         }
       } catch (e) {
-        // Fallback
+        // Network fallback to old logic just in case
+        const today = new Date().toDateString();
+        if (localStorage.getItem('complavi_verified_date') === today) {
+          setIsComplete(true);
+        }
       }
       setIsHydrated(true);
     };
