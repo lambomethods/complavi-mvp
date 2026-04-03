@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useRef, useEffect } from 'react'
+import * as faceapi from '@vladmandic/face-api'
 
 export default function CheckInFlow() {
   const [step, setStep] = useState(1);
@@ -10,24 +11,41 @@ export default function CheckInFlow() {
   const [stream, setStream] = useState<MediaStream | null>(null);
 
   useEffect(() => {
+    let detectInterval: NodeJS.Timeout;
     if (step === 2 && stream && videoRef.current) {
       videoRef.current.srcObject = stream;
+      detectInterval = setInterval(async () => {
+        if (!videoRef.current || videoRef.current.paused) return;
+        try {
+          const detections = await faceapi.detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+          if (detections && detections.detection.score > 0.85) {
+            clearInterval(detectInterval);
+            proceedToGPS(stream);
+          }
+        } catch (e) {
+          console.error("Face detection failed:", e);
+        }
+      }, 500);
     }
+    return () => {
+      if (detectInterval) clearInterval(detectInterval);
+    };
   }, [step, stream]);
 
   const startCheckIn = async () => {
     setSimulating(true);
     try {
+      const MODEL_URL = 'https://cdn.jsdelivr.net/npm/@vladmandic/face-api/model/';
+      await Promise.all([
+        faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+        faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL)
+      ]);
+
       const mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false });
       setStream(mediaStream);
       setStep(2); // Step 2: Camera Feed UI
-      
-      // Hold FaceID scan for 3 seconds
-      setTimeout(() => {
-        proceedToGPS(mediaStream);
-      }, 3000);
     } catch {
-      alert("Hardware Camera Access is legally required for Liveness Verification.");
+      alert("Hardware Camera/Network Access is legally required for Liveness Verification.");
       setSimulating(false);
     }
   }
