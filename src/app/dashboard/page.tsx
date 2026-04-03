@@ -1,6 +1,7 @@
 import React from 'react'
 import { Activity, CheckCircle, AlertOctagon, TrendingDown, Map } from 'lucide-react'
 import MapUIWrapper from '@/components/MapUIWrapper'
+import DashboardHeaderActions from '@/components/DashboardHeaderActions'
 import prisma from '@/lib/prisma'
 export const dynamic = 'force-dynamic';
 
@@ -38,15 +39,7 @@ export default async function DashboardOverview() {
           <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">System Overview</h1>
           <p className="text-slate-500 mt-1">Real-time county compliance matrix.</p>
         </div>
-        <div className="flex space-x-3">
-          <button className="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-medium rounded-md shadow-sm hover:bg-slate-50 transition-colors text-sm">
-            Export Audit Log
-          </button>
-          <button className="px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow flex items-center hover:bg-blue-700 transition-colors text-sm">
-            <Activity className="w-4 h-4 mr-2" />
-            Live Monitor
-          </button>
-        </div>
+        <DashboardHeaderActions />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
