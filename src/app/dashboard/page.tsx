@@ -1,13 +1,7 @@
 import React from 'react'
 import { Activity, CheckCircle, AlertOctagon, TrendingDown, Map } from 'lucide-react'
-import NextDynamic from 'next/dynamic'
+import MapUIWrapper from '@/components/MapUIWrapper'
 import prisma from '@/lib/prisma'
-
-const LiveMap = NextDynamic(
-  () => import('@/components/MapUI'),
-  { ssr: false, loading: () => <div className="w-full h-80 bg-slate-100 animate-pulse rounded-lg flex items-center justify-center text-slate-400 font-medium">Booting Geospatial Engine...</div> }
-)
-
 export const dynamic = 'force-dynamic';
 
 export default async function DashboardOverview() {
@@ -83,7 +77,7 @@ export default async function DashboardOverview() {
             <Map className="w-5 h-5 mr-2 text-slate-400" />
             Live Geospatial Matrix
           </h2>
-          <LiveMap />
+          <MapUIWrapper />
         </div>
 
         <div className="col-span-1 bg-white rounded-xl shadow-sm border border-slate-200 p-6">
