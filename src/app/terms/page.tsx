@@ -23,7 +23,7 @@ export default function TermsOfService() {
 
         <div className="prose prose-slate max-w-none space-y-8">
           <p className="lead text-lg text-slate-700 font-medium">
-            These terms govern your department's use of COMPLAVION's compliance management platform. By accessing the platform, your department agrees to the following.
+            These terms govern your department&apos;s use of COMPLAVION&apos;s compliance management platform. By accessing the platform, your department agrees to the following.
           </p>
 
           <div>
@@ -64,7 +64,7 @@ export default function TermsOfService() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">6. Service termination.</h3>
             <p className="text-slate-600 leading-relaxed">
-              Either party may terminate service with 30 days written notice. County data will be returned or deleted within 60 days of termination at the county's direction.
+              Either party may terminate service with 30 days written notice. County data will be returned or deleted within 60 days of termination at the county&apos;s direction.
             </p>
           </div>
 

@@ -25,7 +25,7 @@ export default function CheckInFlow() {
       setTimeout(() => {
         proceedToGPS(mediaStream);
       }, 3000);
-    } catch (err) {
+    } catch {
       alert("Hardware Camera Access is legally required for Liveness Verification.");
       setSimulating(false);
     }

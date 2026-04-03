@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
           <div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">What we do not collect</h3>
             <p className="text-slate-600 leading-relaxed">
-              <strong>Raw biometric data of any kind.</strong> Biometric verification is processed entirely on the participant's personal device using device-native technology. COMPLAVION receives only a cryptographic confirmation token indicating whether verification was successful. We never see, store, or transmit facial data.
+              <strong>Raw biometric data of any kind.</strong> Biometric verification is processed entirely on the participant&apos;s personal device using device-native technology. COMPLAVION receives only a cryptographic confirmation token indicating whether verification was successful. We never see, store, or transmit facial data.
             </p>
           </div>
 

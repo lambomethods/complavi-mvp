@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, ShieldAlert, History } from 'lucide-react'
+import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, History } from 'lucide-react'
 import prisma from '@/lib/prisma'
 
 export const dynamic = 'force-dynamic';

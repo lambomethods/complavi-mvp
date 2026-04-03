@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Shield, CheckCircle2, Clock, MapPin, Activity, LayoutDashboard, Smartphone, ShieldCheck, Scale, FileText, Check, DollarSign } from 'lucide-react';
+import { Shield, CheckCircle2, Activity, LayoutDashboard, Smartphone, ShieldCheck, Scale, FileText, Check, DollarSign } from 'lucide-react';
 
 export default function LandingPage() {
   return (
@@ -76,7 +76,7 @@ export default function LandingPage() {
                 <UsersIcon className="w-6 h-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Overloaded Officers</h3>
-              <p className="text-slate-600 leading-relaxed">Today's probation officers carry extreme caseloads that demand smarter systems. COMPLAVI gives them a streamlined engine that surfaces who needs exactly what.</p>
+              <p className="text-slate-600 leading-relaxed">Today&apos;s probation officers carry extreme caseloads that demand smarter systems. COMPLAVI gives them a streamlined engine that surfaces who needs exactly what.</p>
             </div>
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
@@ -322,7 +322,7 @@ export default function LandingPage() {
              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Required Disclosures</h4>
              <p className="text-[10px] text-slate-400 leading-relaxed max-w-5xl">
                1. COMPLAVION LLC is an independent technology company. It is not affiliated with any law enforcement agency, federal government body, state department of corrections, or judicial authority.<br/>
-               2. COMPLAVION does not store, access, or transmit raw biometric data. All biometric verification is processed on the participant's personal device. COMPLAVION receives confirmation tokens only.<br/>
+               2. COMPLAVION does not store, access, or transmit raw biometric data. All biometric verification is processed on the participant&apos;s personal device. COMPLAVION receives confirmation tokens only.<br/>
                3. COMPLAVION is a supervision management tool. All case decisions, compliance determinations, and supervisory actions remain the sole responsibility of authorized county officials.<br/>
                4. Participant use of the COMPLAVI mobile application is provided at no charge. COMPLAVION does not bill, charge, or collect fees from individuals under supervision.<br/>
                5. County use of this platform may be subject to applicable state and local procurement requirements. Contact your county counsel or procurement office for guidance specific to your jurisdiction.
@@ -337,6 +337,6 @@ export default function LandingPage() {
   );
 }
 
-const UsersIcon = (props: any) => <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>;
-const AlertTriangleIcon = (props: any) => <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>;
-const BuildingIcon = (props: any) => <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>;
+const UsersIcon = (props: React.SVGProps<SVGSVGElement>) => <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>;
+const AlertTriangleIcon = (props: React.SVGProps<SVGSVGElement>) => <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>;
+const BuildingIcon = (props: React.SVGProps<SVGSVGElement>) => <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>;
