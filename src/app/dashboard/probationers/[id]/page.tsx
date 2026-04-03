@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, History } from 'lucide-react'
+import MapUIWrapper from '@/components/MapUIWrapper'
 import prisma from '@/lib/prisma'
 
 export const dynamic = 'force-dynamic';
@@ -110,28 +111,11 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
 
         {/* Right Column / Map & Timeline */}
         <div className="col-span-1 md:col-span-2 flex flex-col space-y-6">
-          {/* Geospatial Map Placeholder */}
+          {/* Live Geospatial Matrix */}
           <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
-            <h3 className="font-bold text-slate-800 mb-3">Last Known Vector</h3>
-            <div 
-              className="w-full h-64 bg-slate-50 rounded-lg border border-slate-200 flex flex-col items-center justify-center relative overflow-hidden"
-              style={{ backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)', backgroundSize: '16px 16px' }}
-            >
-               <div className="z-10 flex flex-col items-center">
-                 <div className="relative">
-                   <div className="absolute -inset-2 bg-red-500 rounded-full animate-ping opacity-20"></div>
-                   <MapPin className="w-8 h-8 text-red-600 drop-shadow-lg mb-2 relative z-10" />
-                 </div>
-                 {latestLat && latestLng ? (
-                   <span className="bg-white px-3 py-1.5 rounded-md text-xs font-mono border border-slate-200 font-bold text-slate-700 shadow-sm mt-2">
-                     Geospatial Vector Locked
-                   </span>
-                 ) : (
-                   <span className="bg-white px-3 py-1.5 rounded-md text-xs font-mono border border-slate-200 font-bold text-slate-500 shadow-sm mt-2">
-                     Awaiting Telemetry
-                   </span>
-                 )}
-               </div>
+            <h3 className="font-bold text-slate-800 mb-3">Live Geospatial Matrix</h3>
+            <div className="h-64 rounded-lg overflow-hidden w-full relative">
+               <MapUIWrapper />
             </div>
           </div>
 

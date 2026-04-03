@@ -12,11 +12,26 @@ export default function CheckInFlow() {
   const [stream, setStream] = useState<MediaStream | null>(null);
 
   useEffect(() => {
-    const today = new Date().toDateString();
-    if (localStorage.getItem('complavi_verified_date') === today) {
-      setIsComplete(true);
-    }
-    setIsHydrated(true);
+    const checkServerStatus = async () => {
+      try {
+        const res = await fetch('/api/check-in/status');
+        const data = await res.json();
+        if (data.isComplete) {
+           setIsComplete(true);
+           localStorage.setItem('complavi_verified_date', new Date().toDateString());
+        } else {
+           // Fallback to localStorage just in case of network throttle
+           const today = new Date().toDateString();
+           if (localStorage.getItem('complavi_verified_date') === today) {
+             setIsComplete(true);
+           }
+        }
+      } catch (e) {
+        // Fallback
+      }
+      setIsHydrated(true);
+    };
+    checkServerStatus();
   }, []);
 
   useEffect(() => {
