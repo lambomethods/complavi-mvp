@@ -7,7 +7,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className="flex h-screen bg-slate-50 text-slate-900">
       
       {/* Sidebar - Federal Navy */}
-      <aside className="w-64 bg-slate-900 text-slate-100 flex flex-col shadow-xl z-20">
+      <aside className="w-64 bg-slate-900 text-slate-100 flex flex-col shadow-xl z-20 print:hidden">
         <div className="h-16 flex items-center px-6 border-b border-slate-800 bg-slate-950">
           <Shield className="w-6 h-6 text-blue-500 mr-2" />
           <span className="font-bold text-lg tracking-widest text-white">COMPLAVI <span className="text-slate-500 font-mono text-xs ml-1">v1.0</span></span>
@@ -49,9 +49,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </aside>
       
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col overflow-hidden relative">
+      <main className="flex-1 flex flex-col overflow-hidden relative print:overflow-visible print:bg-white print:h-auto">
         {/* Top Header / Breadcrumbs */}
-        <header className="h-16 bg-white border-b border-slate-200 flex items-center px-8 shadow-sm justify-between z-10">
+        <header className="h-16 bg-white border-b border-slate-200 flex items-center px-8 shadow-sm justify-between z-10 print:hidden">
           <div className="flex items-center text-sm font-medium text-slate-500">
             <span className="text-blue-600 font-bold uppercase tracking-wide text-xs bg-blue-50 px-2 py-1 rounded">Court Intranet</span>
             <span className="mx-2">/</span>
@@ -66,7 +66,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </header>
 
         {/* Dynamic Page Content */}
-        <div className="flex-1 overflow-auto bg-slate-50/50 relative">
+        <div className="flex-1 overflow-auto bg-slate-50/50 relative print:overflow-visible print:bg-white">
            {children}
         </div>
       </main>

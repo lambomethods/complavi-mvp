@@ -1,12 +1,31 @@
 "use client";
 import React, { useState } from 'react';
-import { Activity, RefreshCcw } from 'lucide-react';
+import { Activity, RefreshCcw, Bell } from 'lucide-react';
 
 export default function DashboardHeaderActions() {
+  const [alerting, setAlerting] = useState(false);
   const [monitoring, setMonitoring] = useState(false);
 
   return (
-    <div className="flex space-x-3">
+    <div className="flex space-x-3 print:hidden">
+      <button 
+        onClick={async () => {
+          setAlerting(true);
+          try {
+            await fetch('/api/alerts/simulate', { method: 'POST' });
+            alert("Automated Officer Email Triggered: Marcus T missed their 10am window.\n\nBackground automation sequence dispatched.");
+            window.location.reload();
+          } catch(e) {
+            console.error(e)
+          }
+          setAlerting(false);
+        }}
+        disabled={alerting}
+        className="px-4 py-2 bg-amber-50 border border-amber-200 text-amber-700 font-bold rounded-md shadow-sm hover:bg-amber-100 transition-colors text-sm flex items-center disabled:opacity-50"
+      >
+        <Bell className="w-4 h-4 mr-2" />
+        {alerting ? 'Dispatching...' : 'Simulate Missed Alert'}
+      </button>
       <button 
         onClick={async () => {
            if(confirm("Initialize fresh demo architecture view?")) {

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowLeft, User, Fingerprint, MapPin, Target, CheckCircle2, History } from 'lucide-react'
 import MapUIWrapper from '@/components/MapUIWrapper'
 import prisma from '@/lib/prisma'
+import PrintRecordButton from '@/components/PrintRecordButton'
 
 export const dynamic = 'force-dynamic';
 
@@ -55,10 +56,13 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
     <div className="p-8 max-w-6xl mx-auto w-full">
       {/* Header */}
       <div className="mb-6">
-        <Link href="/dashboard/probationers" className="text-slate-500 hover:text-slate-900 flex items-center text-sm font-medium mb-4 transition-colors">
-          <ArrowLeft className="w-4 h-4 mr-1" />
-          Back to Caseload Matrix
-        </Link>
+        <div className="flex justify-between items-center mb-4">
+          <Link href="/dashboard/probationers" className="text-slate-500 hover:text-slate-900 flex items-center text-sm font-medium transition-colors print:hidden">
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Back to Caseload Matrix
+          </Link>
+          <PrintRecordButton />
+        </div>
         <div className="flex justify-between items-start">
           <div className="flex items-center space-x-4">
             <div className="h-16 w-16 bg-slate-200 rounded-full flex items-center justify-center border-4 border-white shadow-sm">

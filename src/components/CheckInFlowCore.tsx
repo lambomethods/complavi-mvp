@@ -150,9 +150,23 @@ export default function CheckInFlow() {
         )}
 
         {step === 1 && isComplete && (
-            <div className="w-48 h-48 rounded-full bg-emerald-50 text-emerald-500 font-extrabold text-xl flex flex-col items-center justify-center border-8 border-white shadow-lg">
-              <svg className="w-16 h-16 text-emerald-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
-              VERIFIED
+            <div className="flex flex-col items-center bg-white p-8 rounded-2xl border border-emerald-100 shadow-xl w-full text-center slide-up-anim max-w-sm mx-auto">
+              <div className="w-24 h-24 bg-emerald-50 rounded-full flex items-center justify-center mb-6 mx-auto border-4 border-white shadow-sm">
+                 <svg className="w-12 h-12 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h2 className="text-3xl font-extrabold text-emerald-600 tracking-tight">VERIFIED</h2>
+              <p className="text-slate-500 mt-2 font-medium">Your location and identity are secure.</p>
+              
+              <div className="mt-8 bg-slate-50 p-5 rounded-xl border border-slate-100 w-full text-left space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-slate-500 font-bold uppercase tracking-widest">Compliance Streak</span>
+                  <span className="text-sm font-mono text-emerald-600 font-extrabold">14 Days</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-slate-500 font-bold uppercase tracking-widest">Next Window</span>
+                  <span className="text-sm font-mono text-slate-800 font-bold">Tomorrow, 08:00 AM</span>
+                </div>
+              </div>
             </div>
         )}
 
