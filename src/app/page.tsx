@@ -36,10 +36,10 @@ export default function LandingPage() {
             Purpose-built for county government. Priced accordingly.
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 max-w-5xl mx-auto leading-tight">
-            Modern Compliance Infrastructure For <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Forward-Thinking Counties.</span>
+            Compliance Audit Infrastructure For <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">County Courts.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-            COMPLAVI helps county courts and probation departments manage supervision more efficiently — replacing manual processes with verified digital check-ins, real-time compliance visibility, and automated reporting tools built specifically for departments your size.
+          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-4xl mx-auto leading-relaxed">
+            In 2023, states spent $3 Billion incarcerating people for technical violations caused by poor documentation. COMPLAVI provides the immutable audit infrastructure courts need to pass oversight audits, eliminate documentation failures, and prove equitable supervision.
           </p>
           {/* VSL VIDEO EMBED */}
           <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-12">
@@ -68,29 +68,29 @@ export default function LandingPage() {
       <section id="problem" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">County Supervision Has Evolved. <br className="hidden md:block"/>The Tools Should Too.</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">The Missing Audit Ledger. <br className="hidden md:block"/>The $3 Billion Problem.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <UsersIcon className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-6">
+                <FileText className="w-6 h-6 text-amber-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Overloaded Officers</h3>
-              <p className="text-slate-600 leading-relaxed">Today&apos;s probation officers carry extreme caseloads that demand smarter systems. COMPLAVI gives them a streamlined engine that surfaces who needs exactly what.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Audit Failures</h3>
+              <p className="text-slate-600 leading-relaxed">Real county audits from 2025/2026 reveal systemic failures to complete accountability logs or provide supporting documentation. Missing data means lost grants and direct liability.</p>
             </div>
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
                 <AlertTriangleIcon className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Costly Violations</h3>
-              <p className="text-slate-600 leading-relaxed">Technical violations are costly for counties and counterproductive for participants. Immediate, high-clarity visibility helps officers prevent them before they result in court appearances.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">The Logistics Gap</h3>
+              <p className="text-slate-600 leading-relaxed">Counties hemorrhage budget incarcerating people for technical check-in failures. Better digital documentation prevents logistical barriers from being incorrectly classified as genuine criminal violations.</p>
             </div>
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
-              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-                <BuildingIcon className="w-6 h-6 text-emerald-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                <ShieldCheck className="w-6 h-6 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">The Enterprise Gap</h3>
-              <p className="text-slate-600 leading-relaxed">Most established enterprise platforms are priced and built for massive state agencies with endless budgets. COMPLAVI was built and priced specifically for everyone else.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Civil Rights Defense</h3>
+              <p className="text-slate-600 leading-relaxed">Oversight committees are increasingly scrutinizing supervision disparities. Departments cannot defend their equitable supervision practices without unforgeable, timestamped behavioral data trails.</p>
             </div>
           </div>
         </div>
@@ -105,39 +105,41 @@ export default function LandingPage() {
           </div>
           
           <div className="space-y-12">
+            
             <div className="flex flex-col md:flex-row items-center gap-12 bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800">
               <div className="flex-1">
-                <span className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module One</span>
+                <span className="text-amber-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module One</span>
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <LayoutDashboard className="w-6 h-6 mr-3 text-blue-500" /> COMPLAVI Compliance Dashboard
+                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> COMPLAVI Immutable Audit Ledger
                 </h3>
-                <p className="text-slate-400 leading-relaxed">A clean real-time overview of your entire caseload. Officers see compliance status across all participants at a glance. Color-coded alerts surface the cases that need attention immediately — without digging through paper files.</p>
+                <p className="text-slate-400 leading-relaxed">Every check-in, check-out, and compliance event is automatically sealed with an immutable timestamp and locked into a secure audit record. Generate perfect, ready-to-print oversight documentation in seconds. Fully court-admissible.</p>
               </div>
             </div>
 
             <div className="flex flex-col md:flex-row-reverse items-center gap-12 bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800">
               <div className="flex-1">
-                <span className="text-emerald-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module Two</span>
+                <span className="text-blue-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module Two</span>
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <Smartphone className="w-6 h-6 mr-3 text-emerald-500" /> COMPLAVI Mobile Check-In
+                  <LayoutDashboard className="w-6 h-6 mr-3 text-blue-500" /> Live Compliance Matrix
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Participants complete court-required check-ins remotely using biometric face verification and GPS confirmation. Thirty seconds from any location. The department stays informed. Participants stay employed.</p>
+                <p className="text-slate-400 leading-relaxed">A real-time overview of supervision status that automatically generates the audit trail. See exact participant compliance boundaries, active alerts, and geo-fenced logs instantly without digging through scattered paper files.</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-12 bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800">
+              <div className="flex-1">
+                <span className="text-emerald-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module Three</span>
+                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                  <Smartphone className="w-6 h-6 mr-3 text-emerald-500" /> Remote Identity Check-In
+                </h3>
+                <p className="text-slate-400 leading-relaxed">Participants legally verify check-ins remotely using zero-knowledge neural identity confirmation and active GPS acquisition. Eliminates the cost of logistical failure violations while perfectly populating the core audit ledger.</p>
                 <div className="mt-6 flex items-start bg-emerald-900/20 border border-emerald-500/20 p-4 rounded-xl">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 mr-3" />
                   <p className="text-sm text-emerald-100 font-medium">Free for participants. Always. The county covers everything. Zero cost to the individual.</p>
                 </div>
               </div>
             </div>
-
-            <div className="flex flex-col md:flex-row items-center gap-12 bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800">
-              <div className="flex-1">
-                <span className="text-amber-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module Three</span>
-                <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> COMPLAVI Audit Intelligence
-                </h3>
-                <p className="text-slate-400 leading-relaxed">Every check-in, every status update, every compliance event is automatically logged with an immutable timestamp and locked in a secure audit record. Organized. Searchable. Court-ready whenever the judge needs it.</p>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>

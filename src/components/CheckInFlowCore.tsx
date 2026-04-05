@@ -18,20 +18,12 @@ export default function CheckInFlow() {
         const data = await res.json();
         if (data.isComplete) {
            setIsComplete(true);
-           localStorage.setItem('complavi_verified_date', new Date().toDateString());
         } else {
-           // If the server explicitly says FALSE, we should wipe the cache to stay in sync!
-           // This enables the "Reset Pitch" button on the dashboard to work globally.
-           localStorage.removeItem('complavi_verified_date');
            setIsComplete(false);
            setStep(1);
         }
       } catch (e) {
-        // Network fallback to old logic just in case
-        const today = new Date().toDateString();
-        if (localStorage.getItem('complavi_verified_date') === today) {
-          setIsComplete(true);
-        }
+        console.error("Status verify failed");
       }
       setIsHydrated(true);
     };
@@ -172,7 +164,7 @@ export default function CheckInFlow() {
               <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay animate-pulse"></div>
               <div className="absolute top-0 left-0 w-full h-2 bg-white/80 shadow-[0_0_20px_rgba(255,255,255,1)] animate-scan"></div>
             </div>
-            <p className="text-[10px] text-slate-400 mt-6 font-mono bg-slate-100 px-3 py-1.5 rounded uppercase tracking-widest border border-slate-200">Computing SHA-256 Facial Hash...</p>
+            <p className="text-[10px] text-slate-400 mt-6 font-mono bg-slate-100 px-3 py-1.5 rounded uppercase tracking-widest border border-slate-200">Confirming Zero-Knowledge Identity Token...</p>
           </div>
         )}
 
@@ -212,7 +204,6 @@ export default function CheckInFlow() {
             <button 
               onClick={() => { 
                 setIsComplete(true); 
-                localStorage.setItem('complavi_verified_date', new Date().toDateString());
                 setStep(1); 
               }}
               className="w-full mt-6 py-3.5 bg-slate-900 text-white font-extrabold text-sm rounded-xl hover:bg-slate-800 transition-colors shadow-md"
