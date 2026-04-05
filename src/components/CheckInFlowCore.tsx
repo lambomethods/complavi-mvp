@@ -126,7 +126,7 @@ export default function CheckInFlow() {
   return (
     <div className="p-6 h-full flex flex-col pt-12 relative z-10 pb-32">
       <div className="mb-10 text-center">
-         <h1 className="text-2xl font-extrabold text-slate-800">Good Morning, Marcus.</h1>
+         <h1 className="text-2xl font-extrabold text-slate-800">Good Morning, M. Thomas.</h1>
          {isComplete || step === 5 ? (
            <p className="text-emerald-600 mt-2 text-sm font-bold flex items-center justify-center">
              <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>

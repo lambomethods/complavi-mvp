@@ -13,7 +13,7 @@ export default function DashboardHeaderActions() {
           setAlerting(true);
           try {
             await fetch('/api/alerts/simulate', { method: 'POST' });
-            alert("Automated Officer Email Triggered: Marcus T missed their 10am window.\n\nBackground automation sequence dispatched.");
+            alert("Automated Officer Email Triggered: M. Thomas missed their 10am window.\n\nBackground automation sequence dispatched.");
             window.location.reload();
           } catch(e) {
             console.error(e)

@@ -19,7 +19,7 @@ export async function POST() {
       ======================================================
       [COMPLAVI EMAIL AUTOMATION DISPATCHED]
       TO: officer.assigned@county.gov
-      SUBJECT: Check-In Alert: Marcus T missed their 10am window.
+      SUBJECT: Check-In Alert: M. Thomas missed their 10am window.
       BODY: The participant failed to register a zero-knowledge hardware token 
             within their required 08:00 AM - 10:00 AM block.
       ======================================================
