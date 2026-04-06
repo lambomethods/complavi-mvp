@@ -34,11 +34,18 @@ export default function CheckInFlow() {
     let detectInterval: NodeJS.Timeout;
     if (step === 2 && stream && videoRef.current) {
       videoRef.current.srcObject = stream;
+      // Stealth Demo Bypass: Auto-proceed after 3.5 seconds to avoid requiring face on recording
+      const stealthTimeout = setTimeout(() => {
+        if (detectInterval) clearInterval(detectInterval);
+        proceedToGPS(stream);
+      }, 3500);
+
       detectInterval = setInterval(async () => {
         if (!videoRef.current || videoRef.current.paused) return;
         try {
           const detections = await faceapi.detectSingleFace(videoRef.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
           if (detections && detections.detection.score > 0.85) {
+            clearTimeout(stealthTimeout);
             clearInterval(detectInterval);
             proceedToGPS(stream);
           }
@@ -174,7 +181,7 @@ export default function CheckInFlow() {
           <div className="flex flex-col items-center slide-up-anim w-full overflow-visible relative pb-6">
             <h2 className="text-lg font-bold text-slate-800 mb-6 animate-pulse">Acquiring Biometric Scan...</h2>
             <div className="relative w-64 h-64 rounded-full overflow-hidden border-8 border-blue-500 shadow-[0_0_50px_rgba(37,99,235,0.4)]">
-              <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover transform scale-x-[-1]"></video>
+              <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover transform scale-x-[-1] blur-md grayscale contrast-150 opacity-60"></video>
               <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay animate-pulse"></div>
               <div className="absolute top-0 left-0 w-full h-2 bg-white/80 shadow-[0_0_20px_rgba(255,255,255,1)] animate-scan"></div>
             </div>
