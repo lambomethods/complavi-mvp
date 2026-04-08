@@ -64,12 +64,12 @@ export default async function DashboardOverview() {
         ))}
       </div>
 
-      {/* Live Immutable Ledger */}
+      {/* Tamper-Resistant Audit Ledger */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-8">
         <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
           <h2 className="text-lg font-bold text-slate-800 flex items-center">
              <FileText className="w-5 h-5 mr-2 text-amber-500" />
-             Live Immutable Ledger
+             Tamper-Resistant Audit Ledger
           </h2>
           <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200 flex items-center shadow-sm">
              <CheckCircle className="w-3 h-3 mr-1" /> ACTIVE SYNC
