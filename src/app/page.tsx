@@ -39,10 +39,10 @@ export default function LandingPage() {
             Court-Ready Compliance Records. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">Automatically Generated.</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-400 mb-6 max-w-4xl mx-auto leading-relaxed italic border-l-4 border-amber-500 pl-4 py-1 text-left inline-block">
-            "Audit failures don't just create inefficiencies — they create liability."
+            "Audit failures don't just create inefficiencies. They create liability."
           </p>
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-4xl mx-auto leading-relaxed">
-            COMPLAVI provides the secure legal defensibility infrastructure courts and probation departments need—reducing audit failures, protecting funding, and strengthening legal defensibility.
+            COMPLAVI provides the secure legal defensibility infrastructure courts and probation departments need to reduce audit failures, protect funding, and strengthen legal defensibility.
           </p>
           {/* VSL VIDEO EMBED */}
           <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-4">
@@ -144,7 +144,7 @@ export default function LandingPage() {
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                   <Smartphone className="w-6 h-6 mr-3 text-emerald-500" /> Remote Identity Check-In
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Participants securely verify check-ins remotely using secure, on-device biometric identity verification and active GPS telemetry. Eliminates the cost of logistical failure violations while seamlessly populating the core audit ledger.</p>
+                <p className="text-slate-400 leading-relaxed">Participants securely verify check-ins remotely using secure, on-device biometric identity verification and active GPS telemetry. Reduces the cost of logistical failure violations while seamlessly populating the core audit ledger.</p>
                 <div className="mt-6 flex items-start bg-emerald-900/20 border border-emerald-500/20 p-4 rounded-xl">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 mr-3" />
                   <p className="text-sm text-emerald-100 font-medium">Free for participants. Always. The county covers everything. Zero cost to the individual.</p>
