@@ -128,7 +128,7 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
             <div className="p-4 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
               <h3 className="font-bold text-slate-800 flex items-center">
                 <History className="w-4 h-4 mr-2 text-slate-500" />
-                Tamper-Resistant Audit Log
+                Secure Audit Log
               </h3>
               <span className="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md border border-blue-200">Last 24 Hours</span>
             </div>

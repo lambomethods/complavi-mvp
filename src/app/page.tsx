@@ -42,7 +42,7 @@ export default function LandingPage() {
             "Audit failures don't just create inefficiencies — they create liability."
           </p>
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-4xl mx-auto leading-relaxed">
-            COMPLAVI provides the tamper-resistant legal defensibility infrastructure courts and probation departments need—reducing audit failures, protecting funding, and strengthening legal defensibility.
+            COMPLAVI provides the secure legal defensibility infrastructure courts and probation departments need—reducing audit failures, protecting funding, and strengthening legal defensibility.
           </p>
           {/* VSL VIDEO EMBED */}
           <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-4">
@@ -56,7 +56,7 @@ export default function LandingPage() {
             </video>
           </div>
           <p className="text-xs text-slate-500 max-w-xl mx-auto mb-10 italic">
-            *COMPLAVI generates tamper-resistant audit records designed to support court-admissible documentation.
+            *COMPLAVI generates secure audit records designed to support court-admissible documentation.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
@@ -122,9 +122,9 @@ export default function LandingPage() {
               <div className="flex-1">
                 <span className="text-amber-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module One</span>
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> Tamper-Resistant Audit Ledger
+                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> Secure Audit Ledger
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Every check-in and compliance event is automatically sealed with a secure timestamp and locked into a tamper-resistant audit record. Generate perfect oversight documentation in seconds. Designed to support definitive, court-admissible evidence.</p>
+                <p className="text-slate-400 leading-relaxed">Every check-in and compliance event is automatically sealed with a cryptographic timestamp and locked into a secure audit record. Generate perfect oversight documentation in seconds. Designed to support definitive, court-admissible evidence.</p>
               </div>
             </div>
 
