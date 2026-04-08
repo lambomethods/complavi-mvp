@@ -32,17 +32,20 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-slate-950 to-transparent"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-wider uppercase mb-6 border border-blue-500/20">
-            Purpose-built for county government. Priced accordingly.
+          <span className="inline-block py-1 px-4 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-wider uppercase mb-6 border border-blue-500/20">
+            Currently Onboarding 2026 Pilot Counties
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 max-w-5xl mx-auto leading-tight">
-            Compliance Audit Infrastructure For <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">County Courts.</span>
+            Court-Ready Compliance Records. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">Automatically Generated.</span>
           </h1>
+          <p className="text-lg md:text-xl text-slate-400 mb-6 max-w-4xl mx-auto leading-relaxed italic border-l-4 border-amber-500 pl-4 py-1 text-left inline-block">
+            "Audit failures don't just create inefficiencies — they create liability."
+          </p>
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-4xl mx-auto leading-relaxed">
-            In 2023, states spent $3 Billion incarcerating people for technical violations caused by poor documentation. COMPLAVI provides the immutable audit infrastructure courts need to pass oversight audits, eliminate documentation failures, and prove equitable supervision.
+            COMPLAVI provides the tamper-resistant legal defensibility infrastructure courts and probation departments need—reducing audit failures, protecting funding, and strengthening legal defensibility.
           </p>
           {/* VSL VIDEO EMBED */}
-          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-12">
+          <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-4">
             <video 
               controls 
               className="w-full h-auto aspect-video cursor-pointer"
@@ -51,6 +54,15 @@ export default function LandingPage() {
               <source src="/demo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+          </div>
+          <p className="text-xs text-slate-500 max-w-xl mx-auto mb-10 italic">
+            *COMPLAVI generates tamper-resistant audit records designed to support court-admissible documentation.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-10">
+            <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><ShieldCheck className="w-4 h-4 mr-2 text-blue-400" /> Aligned with Federal Grant Funding (JAG, Title II)</span>
+            <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><DollarSign className="w-4 h-4 mr-2 text-emerald-400" /> No Participant Fees. Ever.</span>
+            <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><Activity className="w-4 h-4 mr-2 text-amber-400" /> Deploys in 48 Hours</span>
           </div>
 
           <div className="flex flex-col items-center justify-center">
@@ -110,9 +122,9 @@ export default function LandingPage() {
               <div className="flex-1">
                 <span className="text-amber-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module One</span>
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> COMPLAVI Immutable Audit Ledger
+                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> Tamper-Resistant Audit Ledger
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Every check-in, check-out, and compliance event is automatically sealed with an immutable timestamp and locked into a secure audit record. Generate perfect, ready-to-print oversight documentation in seconds. Fully court-admissible.</p>
+                <p className="text-slate-400 leading-relaxed">Every check-in and compliance event is automatically sealed with a secure timestamp and locked into a tamper-resistant audit record. Generate perfect oversight documentation in seconds. Designed to support definitive, court-admissible evidence.</p>
               </div>
             </div>
 
@@ -132,7 +144,7 @@ export default function LandingPage() {
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                   <Smartphone className="w-6 h-6 mr-3 text-emerald-500" /> Remote Identity Check-In
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Participants legally verify check-ins remotely using zero-knowledge neural identity confirmation and active GPS acquisition. Eliminates the cost of logistical failure violations while perfectly populating the core audit ledger.</p>
+                <p className="text-slate-400 leading-relaxed">Participants securely verify check-ins remotely using secure, on-device biometric identity verification and active GPS telemetry. Eliminates the cost of logistical failure violations while seamlessly populating the core audit ledger.</p>
                 <div className="mt-6 flex items-start bg-emerald-900/20 border border-emerald-500/20 p-4 rounded-xl">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 mr-3" />
                   <p className="text-sm text-emerald-100 font-medium">Free for participants. Always. The county covers everything. Zero cost to the individual.</p>
@@ -290,9 +302,9 @@ export default function LandingPage() {
             <div className="bg-slate-900 p-10 rounded-3xl border border-slate-800 shadow-2xl relative">
               <Shield className="w-12 h-12 text-slate-800 absolute top-5 right-5 opacity-20" />
               <p className="text-slate-300 text-lg leading-relaxed text-left">
-                COMPLAVI was founded by a technology developer who understands the justice system from multiple perspectives. Not from a whitepaper. Not from a consulting engagement. From lived experience navigating a system that was not designed with efficiency or dignity in mind. 
+                COMPLAVI was built by a technology developer with direct experience navigating and analyzing critical documentation gaps within the justice system. Not from a whitepaper. Not from a consulting engagement. From firsthand observation of a system that was missing basic digital infrastructure.
                 <br/><br/>
-                That experience drives every design decision we make. We build for the officer who is overwhelmed. We build for the administrator who needs to justify every dollar. We build for the participant who deserves a real path forward. And we build for the county that is ready to lead.
+                That experience drives every design decision we make. The supervision features exist to serve the documentation. Not the other way around. We build for the officer who is overwhelmed. We build for the administrator who needs to justify every dollar. And we build for the county that is ready to lead.
               </p>
             </div>
         </div>
