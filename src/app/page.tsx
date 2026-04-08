@@ -217,8 +217,8 @@ export default function LandingPage() {
 
           <div className="bg-slate-900 rounded-3xl p-10 md:p-16 text-center shadow-xl border border-slate-800">
             <h2 className="text-3xl font-extrabold text-white mb-6">Designed With Participants In Mind.</h2>
-            <p className="text-lg text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Supervision should support second chances — not create new barriers. COMPLAVI gives participants a simple, dignified way to complete required check-ins from wherever they are. From work. From home. From anywhere. In thirty seconds using the phone they already carry. No missed shifts. No long commutes. No unnecessary friction. Always free.
+            <p className="text-slate-300 text-lg leading-relaxed text-center">
+              Supervision should support second chances, not create new barriers. COMPLAVI gives participants a simple, dignified way to complete required check-ins from wherever they are. From work. From home. From anywhere. In thirty seconds using the phone they already carry. No missed shifts. No long commutes. No unnecessary friction. Always free.
             </p>
           </div>
         </div>
