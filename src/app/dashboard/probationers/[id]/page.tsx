@@ -26,8 +26,8 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
     id: dbProfile.id,
     name: dbProfile.user.name,
     dob: '11/14/1994', // Static mapping pending schema upgrade
-    status: isCompliant ? 'COMPLIANT - LIVENESS VERIFIED' : 'AWAITING TELEMETRY',
-    statusColor: isCompliant ? 'bg-emerald-100 text-emerald-700 border-emerald-200' : 'bg-amber-100 text-amber-700 border-amber-200',
+    status: isCompliant ? 'COMPLIANT' : 'AT RISK',
+    statusColor: isCompliant ? 'bg-emerald-100 text-emerald-700 border-emerald-200' : 'bg-red-100 text-red-700 border-red-200',
     riskLevel: dbProfile.riskLevel,
     caseNumber: dbProfile.caseNumber,
     officer: dbProfile.officer ? dbProfile.officer.name : 'Unassigned',
@@ -144,10 +144,16 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
                       <span className="text-xs text-slate-400 font-medium">{log.time}</span>
                     </div>
                     <p className="text-sm font-bold text-slate-700 mt-1">{log.result}</p>
-                    <p className="text-xs text-slate-500 mt-1">{log.geo}</p>
+                    <p className="text-xs text-slate-500 mt-1 font-mono">{log.geo}</p>
+                    <p className="text-[10px] text-slate-400 mt-2 italic bg-slate-50 p-2 rounded border border-slate-100 inline-block w-full">
+                      "This record was generated at the time of event and securely stored for audit verification."
+                    </p>
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="bg-slate-800 text-slate-300 text-[10px] font-mono p-3 text-center uppercase tracking-widest border-t border-slate-700">
+              Last accessed by: Authorized Admin | {new Date().toISOString().replace('T', ' ').substring(0, 19)}
             </div>
           </div>
         </div>

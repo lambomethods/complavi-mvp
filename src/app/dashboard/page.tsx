@@ -45,7 +45,7 @@ export default async function DashboardOverview() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         {[
           { label: 'Active Monitored', value: activeMonitored.toString(), trend: 'Live Database Feed', icon: Activity, color: 'text-blue-500', bg: 'bg-blue-50' },
-          { label: 'Perfect Compliance', value: successLogsCount.toString(), trend: `${complianceRate} success rate`, icon: CheckCircle, color: 'text-emerald-500', bg: 'bg-emerald-50' },
+          { label: 'Compliant (Audit Ready)', value: successLogsCount.toString(), trend: `${complianceRate} compliance baseline`, icon: CheckCircle, color: 'text-emerald-500', bg: 'bg-emerald-50' },
           { label: 'Violations (All Time)', value: violationsCount.toString(), trend: 'Alert triggers generated', icon: AlertOctagon, color: 'text-red-500', bg: 'bg-red-50' },
           { label: 'Documents Court-Ready', value: allLogsCount.toString(), trend: 'Cryptographically Verified', icon: FileText, color: 'text-amber-600', bg: 'bg-amber-50' },
         ].map((stat, i) => (
@@ -98,7 +98,7 @@ export default async function DashboardOverview() {
                    </td>
                    <td className="px-6 py-4 font-mono text-xs text-slate-400">0x{log.id.toUpperCase().substring(0, 8)}...</td>
                    <td className="px-6 py-4 text-right">
-                     <button className="px-3 py-1.5 border border-blue-200 rounded text-blue-600 hover:bg-blue-50 font-bold text-[10px] uppercase tracking-wider transition-colors inline-block">Print Certified Record</button>
+                     <button className="px-3 py-1.5 border border-blue-200 rounded text-blue-600 hover:bg-blue-50 font-bold text-[10px] uppercase tracking-wider transition-colors inline-block">Export Audit Report</button>
                    </td>
                  </tr>
                ))}
@@ -117,7 +117,10 @@ export default async function DashboardOverview() {
         </div>
 
         <div className="col-span-1 bg-white rounded-xl shadow-sm border border-slate-200 p-6">
-          <h2 className="text-lg font-bold text-slate-800 mb-4">Critical Alerts</h2>
+          <h2 className="text-lg font-bold text-slate-800 mb-4 flex items-center">
+            <AlertOctagon className="w-5 h-5 mr-2 text-red-500" />
+            Missing Compliance Event Detected
+          </h2>
           <div className="flex flex-col space-y-3">
              {criticalAlerts.length === 0 ? (
                <div className="p-4 bg-slate-50 rounded-lg border border-slate-100 text-center text-sm font-medium text-slate-500">
