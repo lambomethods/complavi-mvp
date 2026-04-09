@@ -15,6 +15,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "COMPLAVI | Compliance Intelligence",
   description: "Court-Ready Compliance Records. Automatically Generated.",
+  icons: {
+    icon: '/logo.png',
+  },
+  openGraph: {
+    title: "COMPLAVI | Compliance Intelligence",
+    description: "Court-Ready Compliance Records. Automatically Generated.",
+    images: [{
+      url: '/logo.png',
+      width: 800,
+      height: 800,
+      alt: 'COMPLAVI Logo',
+    }],
+  },
 };
 
 export default function RootLayout({
