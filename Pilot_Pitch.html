@@ -88,13 +88,14 @@
             color: #2563eb;
         }
 
-        /* Essential Print CSS to force standard 8.5x11 PDF formatting */
+        /* Essential Print CSS to force standard 8.5x11 PDF formatting and hide browser URLs */
         @media print {
             @page {
                 size: letter;
-                margin: 0.75in;
+                margin: 0; /* Removing page margin hides Chrome's default URL headers/footers */
             }
             body {
+                margin: 0.75in; /* Re-apply margin to body so text isn't cut off */
                 padding: 0;
             }
         }
@@ -110,22 +111,22 @@
     </div>
 
     <h3>The Audit Problem</h3>
-    <p>In recent 2025/2026 oversight reviews, state and federal auditors have increasingly scrutinized county justice departments. Departments are failing audits and exposing themselves to civil liability—not due to poor supervision practices, but due to fragmented, disjointed paper trails.</p>
+    <p>In recent 2025/2026 oversight reviews, state and federal auditors have increasingly scrutinized county justice departments. Departments are failing audits and exposing themselves to civil liability, not due to poor supervision practices, but due to fragmented, disjointed paper trails.</p>
     <p>Current technical check-in procedures place an immense logistical burden on participants, leading to missed check-ins that consume thousands of hours of officer administrative time and drain county incarceration budgets.</p>
 
     <h3>The COMPLAVI Infrastructure Solution</h3>
-    <p>COMPLAVI is not an active tracking mechanism—it is a <span class="highlight">Secure Audit Ledger</span>. We eliminate administrative overhead while guaranteeing equitable supervision.</p>
+    <p>COMPLAVI is not an active tracking mechanism. It is a <span class="highlight">Secure Audit Ledger</span>. We eliminate administrative overhead while guaranteeing equitable supervision.</p>
     <ul>
         <li><strong>Secure On-Device Biometric Verification:</strong> Participants check in using our mobile client. Utilizing the same cryptographic locks as consumer banking applications, they secure their identity and exact GPS coordinates in 30 seconds.</li>
         <li><strong>Instant Ledger Verification:</strong> The moment the biometric gate clears, the event is timestamped and locked onto the Live Matrix interface.</li>
-        <li><strong>Perfect Audit Generation:</strong> When an auditor or oversight judge demands compliance documentation, officers click one button to generate a certified, unforgeable PDF ledger.</li>
+        <li><strong>One-Click Audit Reporting:</strong> When an auditor or oversight judge demands compliance documentation, officers click one button to generate a certified, secure PDF ledger.</li>
     </ul>
 
     <h3>The 90-Day Parallel Pilot Offer</h3>
     <p>We are currently offering select jurisdictions a complimentary <span class="highlight">90-Day Enterprise Technical Sandbox</span>.</p>
     <ul>
         <li><strong>Zero Migration:</strong> COMPLAVI runs parallel to your legacy systems. You do not need to replace your current CRM to evaluate our audit ledger.</li>
-        <li><strong>Zero Participant Cost:</strong> The mobile verification software is provided to participants at no cost—ever.</li>
+        <li><strong>Zero Participant Cost:</strong> The mobile verification software is provided to participants at no cost.</li>
         <li><strong>Targeted Resolution:</strong> Select your highest-friction cohort (up to 100 individuals) suffering from technical violations, and immediately digitize their compliance documentation.</li>
     </ul>
 
