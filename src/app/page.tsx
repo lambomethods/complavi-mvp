@@ -20,7 +20,7 @@ export default function LandingPage() {
                <a href="#about" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">About</a>
             </div>
             <div className="flex items-center space-x-4">
-              <Link href="/dashboard" className="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:block">Court / Officer Login</Link>
+              <Link href="/login" className="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:block">Court / Officer Login</Link>
               <a href="mailto:founder@complavi.com?subject=Pilot Application" className="text-sm font-bold bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-md transition-colors shadow-lg shadow-blue-900/20">Apply For Pilot</a>
             </div>
           </div>

@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import { Shield, Users, AlertTriangle, Settings, LogOut, BarChart2 } from 'lucide-react'
+import DashboardAuth from '@/components/DashboardAuth'
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen bg-slate-50 text-slate-900">
+    <DashboardAuth>
+      <div className="flex h-screen bg-slate-50 text-slate-900">
       
       {/* Sidebar - Federal Navy */}
       <aside className="w-64 bg-slate-900 text-slate-100 flex flex-col shadow-xl z-20 print:hidden">
@@ -71,5 +73,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         </div>
       </main>
     </div>
+    </DashboardAuth>
   )
 }
