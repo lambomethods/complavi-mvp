@@ -339,7 +339,8 @@ export default function LandingPage() {
                2. COMPLAVION does not store, access, or transmit raw biometric data. All identity checks are processed on the participant&apos;s personal device. COMPLAVION receives confirmation tokens only.<br/>
                3. COMPLAVION is a supervision management tool. All case decisions, compliance determinations, and supervisory actions remain the sole responsibility of authorized county officials.<br/>
                4. Participant use of the COMPLAVI mobile application is provided at no charge. COMPLAVION does not bill, charge, or collect fees from individuals under supervision.<br/>
-               5. County use of this platform may be subject to applicable state and local procurement requirements. Contact your county counsel or procurement office for guidance specific to your jurisdiction.
+               5. County use of this platform may be subject to applicable state and local procurement requirements. Contact your county counsel or procurement office for guidance specific to your jurisdiction.<br/>
+               6. Designed with modern accessibility and compliance standards in mind, including WCAG alignment for government use.
              </p>
            </div>
            <div className="mt-8 text-center text-xs text-slate-400 font-medium">
