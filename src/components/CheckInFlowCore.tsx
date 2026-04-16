@@ -179,7 +179,7 @@ export default function CheckInFlow() {
 
         {step === 2 && (
           <div className="flex flex-col items-center slide-up-anim w-full overflow-visible relative pb-6">
-            <h2 className="text-lg font-bold text-slate-800 mb-6 animate-pulse">Acquiring Biometric Scan...</h2>
+            <h2 className="text-lg font-bold text-slate-800 mb-6 animate-pulse">Acquiring Identity Check...</h2>
             <div className="relative w-64 h-64 rounded-full overflow-hidden border-8 border-blue-500 shadow-[0_0_50px_rgba(37,99,235,0.4)]">
               <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover transform scale-x-[-1] blur-md grayscale contrast-150 opacity-60"></video>
               <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay animate-pulse"></div>

@@ -47,7 +47,7 @@ export default async function DashboardOverview() {
           { label: 'Active Monitored', value: activeMonitored.toString(), trend: 'Live Database Feed', icon: Activity, color: 'text-blue-500', bg: 'bg-blue-50' },
           { label: 'Compliant (Audit Ready)', value: successLogsCount.toString(), trend: `${complianceRate} compliance baseline`, icon: CheckCircle, color: 'text-emerald-500', bg: 'bg-emerald-50' },
           { label: 'Violations (All Time)', value: violationsCount.toString(), trend: 'Alert triggers generated', icon: AlertOctagon, color: 'text-red-500', bg: 'bg-red-50' },
-          { label: 'Documents Court-Ready', value: allLogsCount.toString(), trend: 'Cryptographically Verified', icon: FileText, color: 'text-amber-600', bg: 'bg-amber-50' },
+          { label: 'Documents Court-Ready', value: allLogsCount.toString(), trend: 'Verified and Stored', icon: FileText, color: 'text-amber-600', bg: 'bg-amber-50' },
         ].map((stat, i) => (
           <div key={i} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
             <div className="flex justify-between items-start">
@@ -64,12 +64,12 @@ export default async function DashboardOverview() {
         ))}
       </div>
 
-      {/* Secure Audit Ledger */}
+      {/* Secure Compliance Log */}
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-8">
         <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
           <h2 className="text-lg font-bold text-slate-800 flex items-center">
              <FileText className="w-5 h-5 mr-2 text-amber-500" />
-             Secure Audit Ledger
+             Secure Compliance Log
           </h2>
           <span className="text-xs font-mono font-bold text-emerald-600 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200 flex items-center shadow-sm">
              <CheckCircle className="w-3 h-3 mr-1" /> ACTIVE SYNC
@@ -81,8 +81,8 @@ export default async function DashboardOverview() {
               <tr>
                 <th className="px-6 py-4 font-bold border-b border-slate-200">Timestamp (UTC)</th>
                 <th className="px-6 py-4 font-bold border-b border-slate-200">Participant ID</th>
-                <th className="px-6 py-4 font-bold border-b border-slate-200">Event Signature</th>
-                <th className="px-6 py-4 font-bold border-b border-slate-200">Verification Hash</th>
+                <th className="px-6 py-4 font-bold border-b border-slate-200">Event Verification</th>
+                <th className="px-6 py-4 font-bold border-b border-slate-200">Verification Code</th>
                 <th className="px-6 py-4 font-bold border-b border-slate-200 text-right">Action</th>
               </tr>
             </thead>

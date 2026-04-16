@@ -81,7 +81,7 @@ export default async function ProfilePage() {
 
       <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6">
         <h3 className="text-xs font-bold uppercase text-slate-400 tracking-wider mb-5 flex items-center border-b border-slate-50 pb-3">
-          <History className="w-4 h-4 mr-1.5" /> Immutable Log
+          <History className="w-4 h-4 mr-1.5" /> Compliance Log
         </h3>
         <div className="space-y-4">
           {profile.complianceLogs.length === 0 ? (

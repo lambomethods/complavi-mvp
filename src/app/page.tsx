@@ -35,14 +35,14 @@ export default function LandingPage() {
           <span className="inline-block py-1 px-4 rounded-full bg-blue-500/10 text-blue-400 text-xs font-bold tracking-wider uppercase mb-6 border border-blue-500/20">
             Currently Onboarding 2026 Pilot Counties
           </span>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 max-w-5xl mx-auto leading-tight">
-            Court-Ready Compliance Records. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">Automatically Generated.</span>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-8 max-w-5xl mx-auto leading-tight">
+            Software that helps probation departments keep <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-400">complete, time stamped records of supervision activity.</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-400 mb-6 max-w-4xl mx-auto leading-relaxed italic border-l-4 border-amber-500 pl-4 py-1 text-left inline-block">
             "Audit failures don't just create inefficiencies. They create liability."
           </p>
           <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-4xl mx-auto leading-relaxed">
-            COMPLAVI provides the secure legal defensibility infrastructure courts and probation departments need to reduce audit failures, protect funding, and strengthen legal defensibility.
+            COMPLAVI automatically records check ins and case activity so departments always have complete records ready when they are requested or reviewed.
           </p>
           {/* VSL VIDEO EMBED */}
           <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(37,99,235,0.15)] border border-slate-800 bg-slate-900/50 relative mb-4">
@@ -80,7 +80,7 @@ export default function LandingPage() {
       <section id="problem" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">The Missing Audit Ledger. <br className="hidden md:block"/>The $3 Billion Problem.</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">The Missing Compliance Log. <br className="hidden md:block"/>The $3 Billion Problem.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
@@ -122,9 +122,9 @@ export default function LandingPage() {
               <div className="flex-1">
                 <span className="text-amber-400 font-bold tracking-widest text-xs uppercase mb-3 block">Module One</span>
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> Secure Audit Ledger
+                  <FileText className="w-6 h-6 mr-3 text-amber-500" /> Secure Compliance Log
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Every check-in and compliance event is automatically sealed with a cryptographic timestamp and locked into a secure audit record. Generate perfect oversight documentation in seconds. Designed to support definitive, court-admissible evidence.</p>
+                <p className="text-slate-400 leading-relaxed">Each check-in is recorded with a verified timestamp and stored for reporting. Generate perfect oversight documentation in seconds. Designed to support definitive, court-admissible evidence.</p>
               </div>
             </div>
 
@@ -144,7 +144,7 @@ export default function LandingPage() {
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                   <Smartphone className="w-6 h-6 mr-3 text-emerald-500" /> Remote Identity Check-In
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Participants securely verify check-ins remotely using secure, on-device biometric identity verification and active GPS telemetry. Reduces the cost of logistical failure violations while seamlessly populating the core audit ledger.</p>
+                <p className="text-slate-400 leading-relaxed">Participants securely verify check-ins remotely using secure, phone based identity checks and active GPS telemetry. Reduces the cost of logistical failure violations while seamlessly populating the core compliance log.</p>
                 <div className="mt-6 flex items-start bg-emerald-900/20 border border-emerald-500/20 p-4 rounded-xl">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5 mr-3" />
                   <p className="text-sm text-emerald-100 font-medium">Free for participants. Always. The county covers everything. Zero cost to the individual.</p>
@@ -272,7 +272,7 @@ export default function LandingPage() {
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Up to 300 participants</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Full compliance dashboard</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Mobile check-in application</li>
-                <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Automated audit log</li>
+                <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Automated compliance log</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Email support included</li>
               </ul>
               <a href="mailto:founder@complavi.com?subject=Standard Licensing Inquiry" className="block w-full py-3 rounded-lg font-bold text-slate-900 bg-white hover:bg-slate-100 transition-colors shadow-md">Contact Sales</a>
@@ -336,7 +336,7 @@ export default function LandingPage() {
              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Required Disclosures</h4>
              <p className="text-[10px] text-slate-400 leading-relaxed max-w-5xl">
                1. COMPLAVION LLC is an independent technology company. It is not affiliated with any law enforcement agency, federal government body, state department of corrections, or judicial authority.<br/>
-               2. COMPLAVION does not store, access, or transmit raw biometric data. All biometric verification is processed on the participant&apos;s personal device. COMPLAVION receives confirmation tokens only.<br/>
+               2. COMPLAVION does not store, access, or transmit raw biometric data. All identity checks are processed on the participant&apos;s personal device. COMPLAVION receives confirmation tokens only.<br/>
                3. COMPLAVION is a supervision management tool. All case decisions, compliance determinations, and supervisory actions remain the sole responsibility of authorized county officials.<br/>
                4. Participant use of the COMPLAVI mobile application is provided at no charge. COMPLAVION does not bill, charge, or collect fees from individuals under supervision.<br/>
                5. County use of this platform may be subject to applicable state and local procurement requirements. Contact your county counsel or procurement office for guidance specific to your jurisdiction.

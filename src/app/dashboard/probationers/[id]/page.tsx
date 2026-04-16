@@ -40,7 +40,7 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
   const complianceLogs = dbProfile && dbProfile.complianceLogs.length > 0 
     ? dbProfile.complianceLogs.map(log => ({
         id: log.id,
-        type: 'Zero-Knowledge Biometric Auth',
+        type: 'Secure Identity Check',
         result: log.status,
         time: new Date(log.timestamp).toLocaleString('en-US', { timeZone: 'America/New_York', dateStyle: 'short', timeStyle: 'medium' }),
         geo: log.latitude && log.longitude ? `Vector Locked Natively` : 'Location Unavailable',
@@ -107,7 +107,7 @@ export default async function ProbationerProfile({ params }: { params: Promise<{
             <h3 className="font-bold text-slate-800 border-b border-slate-100 pb-2 mb-3">Identity Tokens</h3>
             <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col items-center justify-center text-center">
                <Fingerprint className="w-10 h-10 text-blue-500 mb-3" />
-               <span className="text-xs font-bold text-slate-800">Biometric Template Registered</span>
+               <span className="text-xs font-bold text-slate-800">Identity Profile Registered</span>
                <span className="text-[10px] text-slate-400 mt-1.5 font-mono bg-white px-2 py-1 rounded border border-slate-200">SHA-256: 8f42a9...c3b1</span>
             </div>
           </div>

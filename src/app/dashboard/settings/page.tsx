@@ -16,8 +16,8 @@ export default function SettingsPage() {
            <div className="space-y-4">
               <div className="flex justify-between items-center bg-slate-50 p-4 rounded-lg border border-slate-100">
                  <div>
-                   <p className="font-bold text-slate-800 text-sm">Strict Biometric Enforcement</p>
-                   <p className="text-xs text-slate-500">Require Neural scoring above 0.85</p>
+                   <p className="font-bold text-slate-800 text-sm">Strict Identity Check Rules</p>
+                   <p className="text-xs text-slate-500">Require high confidence match</p>
                  </div>
                  <div className="w-10 h-6 bg-blue-600 rounded-full relative cursor-pointer shadow-inner">
                    <div className="w-4 h-4 bg-white rounded-full absolute right-1 top-1 shadow"></div>

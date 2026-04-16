@@ -20,7 +20,7 @@ export default function AlertsPage() {
         <div className="p-12 text-center">
             <AlertTriangle className="w-12 h-12 text-slate-200 mx-auto mb-3" />
             <h3 className="text-lg font-bold text-slate-700">Matrix Clear</h3>
-            <p className="text-sm text-slate-500 mt-1">There are no outstanding geofence or biometric violations at this time.</p>
+            <p className="text-sm text-slate-500 mt-1">There are no outstanding geofence or identity violations at this time.</p>
         </div>
       </div>
     </div>
