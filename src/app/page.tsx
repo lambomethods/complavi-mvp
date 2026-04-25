@@ -56,13 +56,13 @@ export default function LandingPage() {
             </video>
           </div>
           <p className="text-xs text-slate-500 max-w-xl mx-auto mb-10 italic">
-            *COMPLAVI generates secure audit records designed to support court-admissible documentation.
+            *COMPLAVI generates secure compliance records designed to support evidentiary documentation standards.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><ShieldCheck className="w-4 h-4 mr-2 text-blue-400" /> Aligned with Federal Grant Funding (JAG, Title II)</span>
             <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><DollarSign className="w-4 h-4 mr-2 text-emerald-400" /> No Participant Fees. Ever.</span>
-            <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><Activity className="w-4 h-4 mr-2 text-amber-400" /> Deploys in 48 Hours</span>
+            <span className="flex items-center text-sm font-medium text-slate-300 bg-slate-900 px-4 py-2 rounded-lg border border-slate-800"><Activity className="w-4 h-4 mr-2 text-amber-400" /> Technical deployment ready within 48 hours of approval</span>
           </div>
 
           <div className="flex flex-col items-center justify-center">
@@ -124,7 +124,7 @@ export default function LandingPage() {
                 <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
                   <FileText className="w-6 h-6 mr-3 text-amber-500" /> Secure Compliance Log
                 </h3>
-                <p className="text-slate-400 leading-relaxed">Each check-in is recorded with a verified timestamp and stored for reporting. Generate perfect oversight documentation in seconds. Designed to support definitive, court-admissible evidence.</p>
+                <p className="text-slate-400 leading-relaxed">Each check-in is recorded with a verified timestamp and stored for reporting. Generate perfect oversight documentation in seconds. Designed to support evidentiary documentation standards.</p>
               </div>
             </div>
 
@@ -160,8 +160,8 @@ export default function LandingPage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Up And Running In 48 Hours.</h2>
-            <p className="text-slate-500 text-lg mt-4">We eliminated the grueling procurement cycles. Getting started is frictionless.</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Technical deployment ready within 48 hours of approval.</h2>
+            <p className="text-slate-500 text-lg mt-4">Pilot program structure helps departments evaluate fit before formal procurement. Getting started is frictionless.</p>
           </div>
           
           <div className="max-w-4xl mx-auto relative pl-8 md:pl-0">
@@ -211,7 +211,7 @@ export default function LandingPage() {
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
               <Scale className="w-8 h-8 text-amber-600 mb-4" />
               <h3 className="text-xl font-bold text-slate-900 mb-3">County Judges</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Every supervision decision is supported by verified, timestamped, and court-admissible compliance documentation. Clear records. Confident decisions.</p>
+              <p className="text-slate-600 text-sm leading-relaxed">Every supervision decision is supported by verified, timestamped compliance documentation structured to support evidentiary and court record requirements. Clear records. Confident decisions.</p>
             </div>
           </div>
 
@@ -266,8 +266,8 @@ export default function LandingPage() {
             {/* Tier 2 */}
             <div className="bg-slate-900 border border-slate-800 text-center p-8 rounded-3xl shadow-xl transform md:-translate-y-4 relative">
               <h3 className="text-xl font-bold text-white mb-2 mt-4">Standard</h3>
-              <div className="text-4xl font-extrabold text-white mb-2">$50<span className="text-xl text-slate-400 font-medium">/mo</span></div>
-              <p className="text-slate-400 text-sm mb-8">Per active participant.</p>
+              <div className="text-4xl font-extrabold text-white mb-2">Custom</div>
+              <p className="text-slate-400 text-sm mb-8">Custom departmental pricing based on caseload and deployment scope.</p>
               <ul className="text-sm text-slate-300 space-y-4 mb-8 text-left">
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Up to 300 participants</li>
                 <li className="flex items-center"><Check className="w-4 h-4 text-blue-400 mr-2 shrink-0" /> Full compliance dashboard</li>
