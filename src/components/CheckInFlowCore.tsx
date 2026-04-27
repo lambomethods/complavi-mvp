@@ -169,7 +169,7 @@ export default function CheckInFlow() {
                COMPLAVI utilizes a <strong>Privacy-Minimized Architecture</strong>. We do not store raw biometric images or utilize continuous background tracking.
              </p>
              <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-               By proceeding, you consent to a one-time biometric liveness verification and a single GPS location pin to generate your compliance record. All facial data is processed ephemerally on your device and discarded immediately.
+               By proceeding, you consent to a one-time biometric liveness verification and a single GPS location pin to generate your compliance record. All facial data is processed instantly on your device and permanently deleted.
              </p>
              <button 
                onClick={() => setConsentGiven(true)}
