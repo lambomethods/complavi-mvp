@@ -4,6 +4,7 @@ import * as faceapi from '@vladmandic/face-api'
 
 export default function CheckInFlow() {
   const [step, setStep] = useState(1);
+  const [consentGiven, setConsentGiven] = useState(false);
   const [simulating, setSimulating] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
@@ -59,6 +60,13 @@ export default function CheckInFlow() {
     };
   }, [step, stream]);
 
+  /**
+   * Initializes the biometric liveness check.
+   * ETHICAL & PRIVACY COMPLIANCE: This function only executes AFTER explicit user consent.
+   * It utilizes a Privacy-Minimized Architecture: the camera feed is processed locally (ephemerally) 
+   * to generate a mathematical liveness score. No raw biometric images (JPEGs) are transmitted 
+   * or stored on government servers, protecting participant civil liberties.
+   */
   const startCheckIn = async () => {
     setSimulating(true);
     try {
@@ -77,6 +85,12 @@ export default function CheckInFlow() {
     }
   }
 
+  /**
+   * Acquires the one-time GPS telemetry payload.
+   * PRIVACY COMPLIANCE: We do not utilize continuous background tracking. 
+   * The HTML5 Geolocation API is called once to provide a single, verifiable timestamped pin 
+   * to satisfy the court compliance mandate, immediately turning off location services afterward.
+   */
   const proceedToGPS = (activeStream: MediaStream) => {
     setStep(3); // Step 3: Acquiring GPS String
     if ("geolocation" in navigator) {
@@ -145,13 +159,36 @@ export default function CheckInFlow() {
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center -mt-10">
-        {step === 1 && !isComplete && (
+        {step === 1 && !isComplete && !consentGiven && (
+           <div className="flex flex-col items-center bg-white p-8 rounded-2xl border border-slate-200 shadow-xl w-full text-left slide-up-anim max-w-sm mx-auto">
+             <div className="flex items-center mb-4 text-blue-600">
+               <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+               <h3 className="font-bold text-lg">Privacy & Consent Notice</h3>
+             </div>
+             <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+               COMPLAVI utilizes a <strong>Privacy-Minimized Architecture</strong>. We do not store raw biometric images or utilize continuous background tracking.
+             </p>
+             <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+               By proceeding, you consent to a one-time biometric liveness verification and a single GPS location pin to generate your compliance record. All facial data is processed ephemerally on your device and discarded immediately.
+             </p>
+             <button 
+               onClick={() => setConsentGiven(true)}
+               aria-label="I consent to the privacy policy and data collection"
+               className="w-full py-3.5 bg-blue-600 text-white font-bold text-sm rounded-xl hover:bg-blue-700 transition-colors shadow-md"
+             >
+               I Consent & Continue
+             </button>
+           </div>
+        )}
+
+        {step === 1 && !isComplete && consentGiven && (
            <button 
              onClick={startCheckIn}
              disabled={simulating}
+             aria-label="Start biometric verification"
              className="w-48 h-48 rounded-full bg-blue-600 hover:bg-blue-700 transition-all text-white font-extrabold text-xl shadow-[0_10px_40px_rgba(37,99,235,0.4)] flex flex-col items-center justify-center border-8 border-blue-50/50 disabled:opacity-50 disabled:scale-95 active:scale-95"
            >
-             <svg className="w-12 h-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" /></svg>
+             <svg aria-hidden="true" className="w-12 h-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" /></svg>
              {simulating ? '...' : 'VERIFY NOW'}
            </button>
         )}
